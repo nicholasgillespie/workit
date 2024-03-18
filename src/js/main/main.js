@@ -1,4 +1,4 @@
-import "../../styles/sass/core.scss";
+// import "../../styles/sass/core.scss";
 
 const app = {
   initialize() {
