@@ -11,6 +11,7 @@
   "devDependencies": {
     "postcss-preset-env": "^9.5.2",
     "sass": "^1.72.0",
+    "utopia-core-scss": "^1.0.1",
     "vite": "^5.1.6",
     "vite-plugin-purgecss": "^0.2.12"
   }

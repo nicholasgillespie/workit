@@ -3,6 +3,6 @@
 @use "../00-settings/spacing.scss" as *;
 
 :root {
-  @include generateCustomProps($spacing, "space");
   @include generateCustomProps($font-sizes, "step");
+  // @include generateCustomProps($spaceScales, "space");
 }
