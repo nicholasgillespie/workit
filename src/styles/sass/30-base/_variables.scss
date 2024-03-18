@@ -1,0 +1,8 @@
+@use "../20-mixins/" as *;
+@use "../00-settings/font-sizes.scss" as *;
+@use "../00-settings/spacing.scss" as *;
+
+:root {
+  @include generateCustomProps($spacing, "space");
+  @include generateCustomProps($font-sizes, "step");
+}
