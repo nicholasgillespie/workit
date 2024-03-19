@@ -1,0 +1,10 @@
+@use "../20-mixins/custom-props" as mixin;
+@use "../00-settings/font-sizes.scss" as *;
+@use "../00-settings/space-sizes.scss" as *;
+@use "../00-settings/font-families" as *;
+
+:root {
+  @include mixin.generateCustomProps($space-sizes, "space");
+  @include mixin.generateCustomProps($font-sizes, "step");
+  @include mixin.generateCustomProps($font-families, "font");
+}

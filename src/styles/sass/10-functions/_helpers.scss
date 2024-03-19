@@ -1,0 +1,56 @@
+@function transform-map-values(
+  $variable: null,
+  $key: null,
+  $keyValue: "clamp",
+  $isNested: false
+) {
+  @if $variable == null {
+    @error "Variable is missing. Please provide a map when calling the function.";
+  }
+  @if $key == null {
+    @error "Key is missing. Please provide a key when calling the function.";
+  }
+  @if $key == null {
+    @error "Key value is missing. Please provide a key value when calling the function.";
+  }
+
+  $new-variable: ();
+
+  @if $isNested {
+    @each $inner-map-key, $inner-map in $variable {
+      @each $value in $inner-map {
+        $new-variable: merge-key-value-pairs(
+          $value,
+          $key,
+          $keyValue,
+          $new-variable
+        );
+      }
+    }
+  } @else {
+    @each $value in $variable {
+      $new-variable: merge-key-value-pairs(
+        $value,
+        $key,
+        $keyValue,
+        $new-variable
+      );
+    }
+  }
+
+  @return $new-variable;
+}
+
+@function merge-key-value-pairs($value, $key, $keyValue, $new-variable) {
+  $key-value: map-get($value, $key);
+  $value-value: map-get($value, $keyValue);
+
+  $new-variable: map-merge(
+    $new-variable,
+    (
+      $key-value: $value-value,
+    )
+  );
+
+  @return $new-variable;
+}

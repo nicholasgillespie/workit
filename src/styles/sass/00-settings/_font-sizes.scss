@@ -1,6 +1,6 @@
 @use "node_modules/utopia-core-scss/src/utopia" as utopia;
-@use "../10-functions/utopia-helpers" as u-help;
 @use "./viewports" as *;
+@use "../10-functions/helpers" as help;
 
 $font-sizes: utopia.calculateTypeScale(
   (
@@ -16,4 +16,5 @@ $font-sizes: utopia.calculateTypeScale(
     "relativeTo": "viewport-width",
   )
 );
-$font-sizes: u-help.reconcile-values($font-sizes, "step");
+
+$font-sizes: help.transform-map-values($font-sizes, "step", "clamp", false);

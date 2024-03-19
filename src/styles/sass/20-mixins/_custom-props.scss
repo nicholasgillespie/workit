@@ -1,0 +1,14 @@
+@mixin generateCustomProps($variable: null, $prefix: null) {
+  @if $variable == null {
+    @error "Variable is missing. Please provide a map when including the mixin.";
+  }
+  @if type-of($variable) != map {
+    @error "Variable is not of type map. Please provide a map when including the mixin.";
+  }
+  @if $prefix == null {
+    @error "Prefix is missing. Please provide a prefix as a string when including the mixin.";
+  }
+  @each $key, $value in $variable {
+    --#{$prefix}-#{$key}: #{$value};
+  }
+}
