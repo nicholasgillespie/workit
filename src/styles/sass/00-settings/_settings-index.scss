@@ -1,0 +1,18 @@
+@use "./font-families" as *;
+@use "./font-sizes.scss" as *;
+@use "./space-sizes.scss" as *;
+
+$index: (
+  "space-size": (
+    "variable": $space-sizes,
+    "prefix": "space",
+  ),
+  "font-size": (
+    "variable": $font-sizes,
+    "prefix": "step",
+  ),
+  "font-family": (
+    "variable": $font-families,
+    "prefix": "font",
+  ),
+);

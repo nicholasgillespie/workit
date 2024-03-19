@@ -1,11 +1,11 @@
 @use "node_modules/utopia-core-scss/src/utopia" as utopia;
-@use "./viewport" as *;
+@use "./viewports" as *;
 @use "../10-functions/helpers" as help;
 
-$space-size: utopia.calculateSpaceScale(
+$space-sizes: utopia.calculateSpaceScale(
   (
-    "minWidth": map-get($viewport, "min"),
-    "maxWidth": map-get($viewport, "max"),
+    "minWidth": map-get($viewports, "min"),
+    "maxWidth": map-get($viewports, "max"),
     "minSize": 18,
     "maxSize": 20,
     "positiveSteps": (
@@ -22,15 +22,15 @@ $space-size: utopia.calculateSpaceScale(
     ),
     "customSizes": (
       // "s-l",
-      // "l-s",,
+      // "l-s",,,,,,,
     ),
     // Optional params
     "relativeTo": "viewport-width",
   )
 );
 
-$space-size: help.transform-map-values(
-  $variable: $space-size,
+$space-sizes: help.transform-map-values(
+  $variable: $space-sizes,
   $key: "label",
   $keyValue: "clamp",
   $isNested: true,
