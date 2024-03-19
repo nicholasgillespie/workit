@@ -1,9 +1,8 @@
 @use "./color-palette";
-@use "./color-themes";
-@use "./font-families";
-@use "./font-sizes";
-@use "./font-weights";
-@use "./fonts";
-@use "./line-heights";
-@use "./space-sizes";
-@use "./viewports";
+@use "./font";
+@use "./font-family";
+@use "./font-size";
+@use "./font-weight";
+@use "./line-height";
+@use "./space-size";
+@use "./viewport";

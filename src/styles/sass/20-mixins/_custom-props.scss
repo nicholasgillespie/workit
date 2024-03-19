@@ -1,3 +1,16 @@
+/**
+ * Mixin: generateCustomProps
+ * 
+ * This mixin generates CSS custom properties (also known as CSS variables) based on a provided SCSS map and a prefix.
+ * 
+ * Parameters:
+ * - $variable: A SCSS map where each key-value pair represents a CSS variable and its value.
+ * - $prefix: A string that will be prepended to each key from the $variable map to form the CSS variable name.
+ * 
+ * The mixin iterates over the $variable map, and for each key-value pair, it generates a CSS variable. 
+ * The CSS variable's name is formed by concatenating the $prefix and the key, and its value is the corresponding value from the map.
+ */
+
 @mixin generateCustomProps($variable: null, $prefix: null) {
   @if $variable == null {
     @error "Variable is missing. Please provide a map when including the mixin.";

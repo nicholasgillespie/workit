@@ -1,11 +1,11 @@
 @use "node_modules/utopia-core-scss/src/utopia" as utopia;
-@use "./viewports" as *;
+@use "./viewport" as *;
 @use "../10-functions/helpers" as help;
 
-$font-sizes: utopia.calculateTypeScale(
+$font-size: utopia.calculateTypeScale(
   (
-    "minWidth": map-get($viewports, "min"),
-    "maxWidth": map-get($viewports, "max"),
+    "minWidth": map-get($viewport, "min"),
+    "maxWidth": map-get($viewport, "max"),
     "minFontSize": 18,
     "maxFontSize": 20,
     "minTypeScale": 1.2,
@@ -17,4 +17,9 @@ $font-sizes: utopia.calculateTypeScale(
   )
 );
 
-$font-sizes: help.transform-map-values($font-sizes, "step", "clamp", false);
+$font-size: help.transform-map-values(
+  $variable: $font-size,
+  $key: "step",
+  $keyValue: "clamp",
+  $isNested: false,
+);

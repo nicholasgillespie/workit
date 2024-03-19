@@ -1,3 +1,5 @@
+@use "../10-functions/get" as *;
+
 html {
   color-scheme: light dark;
 }
@@ -6,6 +8,11 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-block-size: 100vh;
-  font-size: var(--step-0);
-  font-family: var(--font-base);
+  font-size: get("font-size", 0);
+  font-family: get("font-family", base);
+}
+
+header {
+  margin: get("space-size", xl);
+  font-size: get("font-size", 5);
 }

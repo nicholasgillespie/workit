@@ -1,0 +1,48 @@
+/**
+ * Function: get
+ * 
+ * This function retrieves the value of a CSS custom property based on a provided SCSS variable and a key.
+ * 
+ * Parameters:
+ * - $variableName: A string that should match one of the keys in the `$settings` map.
+ * - $value: A string that should match one of the keys in the corresponding variable.
+ * 
+ * The function looks up the $variableName in the `$settings` map to find the corresponding CSS custom property prefix and the variable.
+ * It then checks if the $value is a key in the variable. If it is, the function returns a CSS variable with the prefix and the $value.
+ * If either $variableName or $value is not found, the function throws an error.
+ * 
+ * For example, `get("font-size", "base")` will return `var(--step-base)`, assuming that "base" is a key in the `$font-size` variable.
+ */
+
+@use "../00-settings/font-family" as *;
+@use "../00-settings/font-size" as *;
+@use "../00-settings/space-size" as *;
+
+$settings: (
+  "space-size": (
+    "variable": $space-size,
+    "prefix": "space",
+  ),
+  "font-size": (
+    "variable": $font-size,
+    "prefix": "step",
+  ),
+  "font-family": (
+    "variable": $font-family,
+    "prefix": "font",
+  ),
+);
+
+@function get($variableName: null, $value: null) {
+  @if $variableName == null or map-has-key($settings, $variableName) == false {
+    $validOptions: map-keys($settings);
+    @error "Variable `#{$variableName}` is either missing or not found in `$settings` map. Please provide a valid variable name. Valid options are: `#{$validOptions}`.";
+  }
+  $variable: map-get(map-get($settings, $variableName), "variable");
+  @if $value == null or map-has-key($variable, $value) == false {
+    $validOptions: map-keys($variable);
+    @error "Value `#{$value}` is either missing or not found in the `#{$variableName}` map. Please provide a valid value. Valid options are: `#{$validOptions}`.";
+  }
+  $prefix: map-get(map-get($settings, $variableName), "prefix");
+  @return var(--#{$prefix}-#{$value});
+}

@@ -1,7 +1,11 @@
+/**
+ * Function: transform-map-values
+ * Transforms values in a SCSS map based on a provided key and key value.
+ */
 @function transform-map-values(
   $variable: null,
   $key: null,
-  $keyValue: "clamp",
+  $keyValue: null,
   $isNested: false
 ) {
   @if $variable == null {
@@ -10,8 +14,11 @@
   @if $key == null {
     @error "Key is missing. Please provide a key when calling the function.";
   }
-  @if $key == null {
+  @if $keyValue == null or $keyValue == false {
     @error "Key value is missing. Please provide a key value when calling the function.";
+  }
+  @if type-of($isNested) != bool {
+    @error "`$isNested` should be a boolean (true or false). Please provide a boolean when calling the function.";
   }
 
   $new-variable: ();
@@ -41,6 +48,10 @@
   @return $new-variable;
 }
 
+/**
+ * Function: merge-key-value-pairs
+ * Merges a key-value pair into an existing SCSS map.
+ */
 @function merge-key-value-pairs($value, $key, $keyValue, $new-variable) {
   $key-value: map-get($value, $key);
   $value-value: map-get($value, $keyValue);
