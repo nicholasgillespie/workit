@@ -37,7 +37,7 @@ ol[role="list"] {
 body {
   // min-block-size: 100vh;
   min-block-size: 100dvh;
-  // min-block-size: min(100dvh, 100vh);
+  min-block-size: min(100dvh, 100vh);
   line-height: 1.5;
 }
 
