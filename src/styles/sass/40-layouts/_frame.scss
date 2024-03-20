@@ -1,0 +1,42 @@
+.l-frame {
+  --inline: 16;
+  --block: 9;
+  aspect-ratio: var(--inline) / var(--block);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > img,
+  & > video {
+    display: block;
+    max-inline-size: 100%;
+    max-block-size: 100%;
+    object-fit: cover;
+  }
+
+  &[data-frame="square"] {
+    --inline: 1;
+    --block: 1;
+  }
+  &[data-frame="landscape"] {
+    --inline: 4;
+    --block: 3;
+  }
+  &[data-frame="portrait"] {
+    --inline: 3;
+    --block: 4;
+  }
+  &[data-frame="widescreen"] {
+    --inline: 16;
+    --block: 9;
+  }
+  &[data-frame="ultrawide"] {
+    --inline: 21;
+    --block: 9;
+  }
+  &[data-frame="golden"] {
+    --inline: 1.618;
+    --block: 1;
+  }
+}

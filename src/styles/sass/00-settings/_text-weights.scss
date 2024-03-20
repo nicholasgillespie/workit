@@ -1,0 +1,9 @@
+@use "../10-functions/helpers" as help;
+
+$text-weights: (
+  "Regular": 400,
+  "Medium": 500,
+  "Bold": 700,
+);
+
+$text-weights: help.kebab-case-map($text-weights);

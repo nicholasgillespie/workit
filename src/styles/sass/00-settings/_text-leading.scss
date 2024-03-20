@@ -1,0 +1,10 @@
+@use "../10-functions/helpers" as help;
+
+$text-leading: (
+  "Flat": 1,
+  "Fine": 1.15,
+  "Standard": 1.5,
+  "Loose": 1.7,
+);
+
+$text-leading: help.kebab-case-map($text-leading);

@@ -1,5 +1,9 @@
 @use "../10-functions/get-variable" as *;
 
+* {
+  outline: solid 1px pink;
+}
+
 html {
   color-scheme: light dark;
 }
@@ -7,7 +11,6 @@ html {
 body {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  min-block-size: 100vh;
   font-size: get("font-size", 0);
   font-family: get("font-family", base);
   word-break: break-word;
@@ -16,7 +19,7 @@ body {
 header {
   margin: get("space-size", "xl-2xl");
   font-size: get("font-size", 5);
-  background-color: get("color", "test");
+  background-color: get("color", "grayish-blue");
 }
 
 footer {

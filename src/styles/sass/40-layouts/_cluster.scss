@@ -1,0 +1,28 @@
+/*
+C-CLUSTER
+More info: https://every-layout.dev/layouts/cluster/
+A layout that lets you distribute items with consistent
+spacing, regardless of their size
+
+CUSTOM PROPERTIES AND CONFIGURATION
+--gutter: This defines the space between each item.
+--cluster-flex-wrap: Determines whether the flex items are forced onto one line or can wrap onto multiple lines.
+--cluster-flex-direction: Specifies the direction of the flexible items.
+--cluster-justify-content: How items should align horizontally. Can be any acceptable flexbox alignment value.
+--cluster-align-items: How items should align vertically. Can be any acceptable flexbox alignment value.
+--cluster-gap: The size of the gap between grid cells.
+*/
+
+.l-cluster {
+  --_cluster-gap: var(--gutter, 1rem); // var(--space-s-m)); ???
+
+  display: flex;
+  flex-wrap: var(--cluster-flex-wrap, wrap);
+  justify-content: var(--cluster-justify-content, flex-start);
+  align-items: var(--cluster-align-items, center);
+  gap: var(--cluster-gap, var(--_cluster-gap));
+
+  &[data-cluster="space-between"] {
+    --cluster-justify-content: space-between;
+  }
+}

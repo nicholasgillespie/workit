@@ -1,0 +1,42 @@
+/*
+C-SIDEBAR
+More info: https://every-layout.dev/layouts/sidebar/
+A layout that provides a sidebar and main content area with flexible widths.
+
+CUSTOM PROPERTIES AND CONFIGURATION
+--gutter: This defines the space between the sidebar and the main content.
+--sidebar-target-width: This defines the preferred width of the sidebar.
+--sidebar-content-min-width: This defines the minimum width of the main content area.
+
+The first child of the sidebar is the sidebar itself, and the last child is the main content area. The sidebar has a flexible basis and can grow, while the main content area has a basis of 0 but can grow to fill the remaining space.
+
+The 'rtl' attribute can be added to the sidebar to reverse the direction of the layout.
+*/
+
+.l-sidebar {
+  --_sidebar-gap: var(--gutter, 5rem); // var(--space-s-l)); ???
+  --_sidebar-target-width: 20rem;
+  --_sidebar-content-min-width: 60%;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sidebar-gap, var(--_sidebar-gap));
+
+  & > :first-child {
+    flex-basis: var(--sidebar-target-width, var(--_sidebar-target-width));
+    flex-grow: 1;
+  }
+
+  & > :last-child {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-inline-size: var(
+      --sidebar-content-min-width,
+      var(--_sidebar-content-min-width)
+    );
+  }
+
+  &[data-sidebar="rtl"] {
+    flex-direction: row-reverse;
+  }
+}

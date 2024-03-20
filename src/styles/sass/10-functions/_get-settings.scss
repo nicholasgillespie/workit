@@ -1,8 +1,9 @@
-@use "../00-settings/color-palette" as *;
-@use "../00-settings/spacings.scss" as *;
-@use "../00-settings/font-sizes.scss" as *;
-@use "../00-settings/font-families" as *;
-@use "../00-settings/font-weights.scss" as *;
+@use "../00-settings/colors" as *;
+@use "../00-settings/fonts" as *;
+@use "../00-settings/spacing.scss" as *;
+@use "../00-settings/text-leading.scss" as *;
+@use "../00-settings/text-sizes.scss" as *;
+@use "../00-settings/text-weights.scss" as *;
 
 /**
  * Takes several maps of design tokens and returns a map where each key is a 
@@ -20,23 +21,27 @@
 @function settings() {
   $index: (
     "color": (
-      "variable": $color-palette,
+      "variable": $colors,
       "prefix": "color",
     ),
     "space-size": (
-      "variable": $spacings,
+      "variable": $spacing,
       "prefix": "space",
     ),
     "font-size": (
-      "variable": $font-sizes,
+      "variable": $text-sizes,
       "prefix": "size-step",
     ),
+    "line-height": (
+      "variable": $text-leading,
+      "prefix": "leading",
+    ),
     "font-family": (
-      "variable": $font-families,
+      "variable": $fonts,
       "prefix": "font",
     ),
     "font-weight": (
-      "variable": $font-weights,
+      "variable": $text-weights,
       "prefix": "font",
     ),
   );

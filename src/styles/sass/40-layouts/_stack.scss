@@ -1,0 +1,40 @@
+/*
+C-STACK
+More info: https://every-layout.dev/layouts/stack/
+A layout that provides a vertical stack of elements with consistent spacing.
+
+CUSTOM PROPERTIES AND CONFIGURATION
+--stack-space : This defines the space between each stacked item.
+--stack-justify-content: Determines how the items are justified along the vertical axis.
+--stack-align-items: Determines how the items are aligned along the horizontal axis.
+
+The 'space-between' attribute can be added to the stack to distribute the space between the items evenly.
+*/
+
+.l-stack {
+  --_stack-space: var(--gutter, 1rem); // var(--space-s-m)); ???
+
+  display: flex;
+  flex-direction: column;
+  justify-content: var(--stack-justify-content, flex-start);
+  align-items: var(--stack-align-items, flex-start);
+
+  & > * {
+    margin-block: 0;
+  }
+
+  & > * + * {
+    margin-block-start: var(--stack-space, var(--_stack-space));
+  }
+
+  &[data-stack="split-after"] {
+    & > :only-child {
+      block-size: 100%;
+    }
+
+    & > :nth-child(2) {
+      margin-block-end: auto;
+      background-color: red;
+    }
+  }
+}
