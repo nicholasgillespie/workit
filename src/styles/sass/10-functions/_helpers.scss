@@ -1,8 +1,8 @@
 /**
- * Function: transform-map-values
+ * Function: select-and-merge-key-value-pairs
  * Transforms values in a SCSS map based on a provided key and key value.
  */
-@function transform-map-values(
+@function select-and-merge-key-value-pairs(
   $variable: null,
   $key: null,
   $keyValue: null,
@@ -64,4 +64,70 @@
   );
 
   @return $new-variable;
+}
+
+/**
+ * Function: trim
+ * Removes leading and trailing spaces from a string.
+ */
+@function trim($string) {
+  $first-char: str-slice($string, 1, 1);
+  $last-char: str-slice($string, -1, -1);
+
+  @if $first-char == " " {
+    $string: str-slice($string, 2);
+    @return trim($string);
+  }
+
+  @if $last-char == " " {
+    $string: str-slice($string, 1, -2);
+    @return trim($string);
+  }
+
+  @return $string;
+}
+
+/**
+ * Function: kebab-case
+ * Converts a string to kebab-case.
+ */
+@function kebab-case($string) {
+  $string: trim($string);
+  $string: to-lower-case($string);
+  $index: str-index($string, " ");
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + "-" +
+      kebab-case(str-slice($string, $index + 1));
+  }
+
+  @return $string;
+}
+
+/**
+ * Function: kebab-case-map
+ * Converts keys and/or values in a SCSS map to kebab-case.
+ */
+@function kebab-case-map($map, $convert: "both") {
+  $new-map: ();
+
+  @each $key, $value in $map {
+    @if $convert == "keys" or $convert == "both" {
+      $key: kebab-case($key);
+    }
+    @if type-of($value) ==
+      string and
+      ($convert == "values" or $convert == "both")
+    {
+      $value: kebab-case($value);
+    }
+    $new-map: map-merge(
+      $new-map,
+      (
+        $key: $value,
+      )
+    );
+  }
+
+  @return $new-map;
 }

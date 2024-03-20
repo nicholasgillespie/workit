@@ -17,7 +17,7 @@ $font-sizes: utopia.calculateTypeScale(
   )
 );
 
-$font-sizes: help.transform-map-values(
+$font-sizes: help.select-and-merge-key-value-pairs(
   $variable: $font-sizes,
   $key: "step",
   $keyValue: "clamp",

@@ -1,10 +1,10 @@
-@use "../00-settings/settings-index" as settings;
-@use "../20-mixins/custom-properties" as css;
+@use "../10-functions/get-settings" as get;
+@use "../20-mixins/gen-css-variables" as gen;
 
 :root {
-  @each $variableName, $data in settings.$index {
+  @each $variableName, $data in get.settings() {
     $variable: map-get($data, "variable");
     $prefix: map-get($data, "prefix");
-    @include css.custom-properties($variable: $variable, $prefix: $prefix);
+    @include gen.css-variables($variable, $prefix);
   }
 }

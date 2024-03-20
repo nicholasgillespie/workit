@@ -1,0 +1,44 @@
+@use "../00-settings/color-palette" as *;
+@use "../00-settings/spacings.scss" as *;
+@use "../00-settings/font-sizes.scss" as *;
+@use "../00-settings/font-families" as *;
+@use "../00-settings/font-weights.scss" as *;
+
+/**
+ * Takes several maps of design tokens and returns a map where each key is a 
+ * category of design tokens (e.g., "color", "space-size") and each value is 
+ * another map. This nested map contains two keys: "variable" and "prefix".
+ *
+ * The "variable" key corresponds to the imported map of design tokens, and 
+ * the "prefix" key corresponds to a string used to generate CSS custom properties.
+ *
+ * @returns {map} A map where each key is a category of design tokens and each 
+ * value is another map containing the design tokens and their corresponding 
+ * CSS custom property prefixes.
+ */
+
+@function settings() {
+  $index: (
+    "color": (
+      "variable": $color-palette,
+      "prefix": "color",
+    ),
+    "space-size": (
+      "variable": $spacings,
+      "prefix": "space",
+    ),
+    "font-size": (
+      "variable": $font-sizes,
+      "prefix": "size-step",
+    ),
+    "font-family": (
+      "variable": $font-families,
+      "prefix": "font",
+    ),
+    "font-weight": (
+      "variable": $font-weights,
+      "prefix": "font",
+    ),
+  );
+  @return $index;
+}

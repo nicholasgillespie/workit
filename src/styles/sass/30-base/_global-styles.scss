@@ -1,4 +1,4 @@
-@use "../10-functions/get" as *;
+@use "../10-functions/get-variable" as *;
 
 html {
   color-scheme: light dark;
@@ -10,9 +10,15 @@ body {
   min-block-size: 100vh;
   font-size: get("font-size", 0);
   font-family: get("font-family", base);
+  word-break: break-word;
 }
 
 header {
-  margin: get("space-size", xl);
+  margin: get("space-size", "xl-2xl");
   font-size: get("font-size", 5);
+  background-color: get("color", "test");
+}
+
+footer {
+  // margin: get("space-size", s);
 }

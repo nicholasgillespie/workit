@@ -2,7 +2,7 @@
 @use "./viewports" as *;
 @use "../10-functions/helpers" as help;
 
-$space-sizes: utopia.calculateSpaceScale(
+$spacings: utopia.calculateSpaceScale(
   (
     "minWidth": map-get($viewports, "min"),
     "maxWidth": map-get($viewports, "max"),
@@ -17,20 +17,20 @@ $space-sizes: utopia.calculateSpaceScale(
     ),
     "negativeSteps": (
       0.75,
-      0.5,
-      0.25,
+      // 0.5,
+      // 0.25,
     ),
     "customSizes": (
       // "s-l",
-      // "l-s",,,,,,,
+      // "l-s",
     ),
     // Optional params
     "relativeTo": "viewport-width",
   )
 );
 
-$space-sizes: help.transform-map-values(
-  $variable: $space-sizes,
+$spacings: help.select-and-merge-key-value-pairs(
+  $variable: $spacings,
   $key: "label",
   $keyValue: "clamp",
   $isNested: true,

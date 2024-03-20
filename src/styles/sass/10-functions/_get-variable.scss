@@ -1,0 +1,38 @@
+@use "../10-functions/get-settings" as get;
+
+/**
+ * Takes a variable name and a key, and returns the corresponding CSS custom 
+ * property. 
+ *
+ * The function retrieves the map from the `settings` function, then looks up 
+ * the variable name in this map to find the corresponding variable and CSS 
+ * custom property prefix. If the key is found in the variable, the function 
+ * returns a CSS custom property with the prefix and the key. 
+ * 
+ * If either the variable name or the key is not found, the function throws an 
+ * error.
+ *
+ * @param {string} $variableName - The name of the variable.
+ * @param {string} $value - The key in the variable.
+ * @returns {string} The CSS custom property corresponding to the provided 
+ * variable and key.
+ * @throws {error} If either the variable name or the key is not found.
+ */
+
+@function get($variableName: null, $value: null) {
+  @if $variableName ==
+    null or
+    map-has-key(get.settings(), $variableName) ==
+    false
+  {
+    $validOptions: map-keys(get.settings());
+    @error "Variable `#{$variableName}` is either missing or not found in `$index` map. Please provide a valid variable name. Valid options are: `#{$validOptions}`.";
+  }
+  $variable: map-get(map-get(get.settings(), $variableName), "variable");
+  @if $value == null or map-has-key($variable, $value) == false {
+    $validOptions: map-keys($variable);
+    @error "Value `#{$value}` is either missing or not found in the `#{$variableName}` map. Please provide a valid value. Valid options are: `#{$validOptions}`.";
+  }
+  $prefix: map-get(map-get(get.settings(), $variableName), "prefix");
+  @return var(--#{$prefix}-#{$value});
+}
