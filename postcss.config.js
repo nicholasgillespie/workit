@@ -9,7 +9,7 @@ export default {
       // Stage 3: Candidate recommendation stage, features await final review.
       // Stage 4: Final stage, features are official CSS features.
       // Features at stage level or higher will be polyfilled.
-      stage: 3,
+      stage: 0,
       features: {
         // Add or remove specific features here.
         // If feature is set to true ? polyfilled : not be polyfilled.
