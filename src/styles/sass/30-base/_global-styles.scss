@@ -1,27 +1,148 @@
 @use "../10-functions/get-css-variable" as *;
 
 * {
-  outline: solid 1px pink;
+  outline: solid 1px hotpink;
 }
 
-html {
-  color-scheme: light dark;
-}
-
+// GLOBAL SETTINGS ////////////////////
 body {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  font-size: get("font-size", 0);
-  font-family: get("font-family", base);
+  // background-color: get-theme("bg", "base");
+  // color: get-theme("color", "base");
+  font-size: get(font-size, 0);
+  font-family: get(font-family, "base");
+  font-weight: get(font-weight, "regular");
+  line-height: get(line-height, "standard");
   word-break: break-word;
 }
 
-header {
-  margin: get("space-size", "xl-2xl");
-  font-size: get("font-size", 5);
-  background-color: get("color", "grayish-blue");
+// DOCUMENT STRUCTURE ////////////////////
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
-footer {
-  // margin: get("space-size", s);
+// TYPOGRAPHY ////////////////////
+h1,
+h2,
+h3,
+h4 {
+  font-family: get(font-family, "special");
+  font-weight: get(font-weight, "bold");
+  line-height: get(line-height, "flat");
+  letter-spacing: -0.02ch;
+  text-wrap: balance;
+  hyphens: auto;
 }
+
+h1 {
+  font-size: get(font-size, 5);
+  max-inline-size: 30ch;
+}
+
+h2 {
+  font-size: get(font-size, 4);
+}
+
+h3 {
+  font-size: get(font-size, 3);
+}
+
+h4 {
+  font-size: get(font-size, 2);
+}
+
+// CONTENT ELEMENTS ////////////////////
+// TEXT ELEMENTS
+p {
+  max-inline-size: var(--measure, 75ch);
+}
+
+b {
+  // color: get-theme("color", "highlight");
+}
+
+// LIST ELEMENTS
+
+// FORM ELEMENTS
+
+// TABLE ELEMENTS
+table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  border: none;
+}
+
+// IMAGE & SVG ELEMENTS
+
+// INTERACTIVE ELEMENTS ////////////////////
+// A ELEMENT SPECIFICS
+a {
+  //
+
+  &:hover,
+  &:focus {
+    //
+  }
+}
+
+// BUTTON STYLES
+button {
+  //
+
+  &:hover,
+  &:focus {
+    //
+  }
+}
+
+// INTERACTIVE STATES ////////////////////
+// SELECTION
+
+// FOCUS AND TARGET STATES
+:focus {
+  outline-offset: 0.65ch;
+}
+
+:target {
+  scroll-margin-block: 2ex;
+}
+
+// INTERFACE ELEMENTS ////////////////////
+// SELECTION
+::selection {
+  // color: get-theme("color", "bold");
+  // background: get-color("core", "primary");
+}
+
+// SKIP LINK
+.skip-link {
+  &-container {
+    position: absolute;
+    inset-block-start: 0.5em;
+    z-index: 999;
+  }
+
+  & {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    min-block-size: 100%;
+    font-family: get-font-family("code");
+    font-size: get-size(-1);
+  }
+
+  &:not(:focus) {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: auto;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
+  }
+}
+
+// SCROLLBAR ////////////////////

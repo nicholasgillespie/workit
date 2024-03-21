@@ -3,17 +3,19 @@ import { resolve } from "path";
 
 import vitePurgeCss from "vite-plugin-purgecss";
 
+console.log("__dirname: ", __dirname);
+
 export default defineConfig({
   plugins: [vitePurgeCss()],
-  root: resolve(__dirname, "src/"),
   base: "/workit",
-  build: {
-    outDir: "../dist",
-    emptyOutDir: true,
-    rollupOptions: {
-      input: {
-        home: resolve(__dirname, "src/index.html"),
-      },
-    },
-  },
+  // root: resolve(__dirname, "/"),
+  // build: {
+  //   outDir: "../dist",
+  //   emptyOutDir: true,
+  //   rollupOptions: {
+  //     input: {
+  //       home: resolve(__dirname, "/index.html"),
+  //     },
+  //   },
+  // },
 });

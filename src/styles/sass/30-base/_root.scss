@@ -4,11 +4,13 @@
   @include gen.css-variables();
 
   --gutter: var(--space-s-l);
-  --border-radius: var(--size-step-1);
-  --transition-base: 250ms ease;
-  --transition-movement: 200ms linear;
-  --transition-fade: 300ms ease;
-  --transition-bounce: 500ms cubic-bezier(0.5, 0.05, 0.2, 1.5);
+  --measure: 75ch;
+
+  // --border-radius: var(--size-step-1);
+  // --transition-base: 250ms ease;
+  // --transition-movement: 200ms linear;
+  // --transition-fade: 300ms ease;
+  // --transition-bounce: 500ms cubic-bezier(0.5, 0.05, 0.2, 1.5);
   --tracking: -0.05ch;
   --tracking-s: -0.075ch;
 }

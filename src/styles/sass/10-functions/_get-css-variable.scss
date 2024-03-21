@@ -1,22 +1,17 @@
 @use "../10-functions/get-design-tokens" as get;
 
 /**
- * Takes a variable name and a key, and returns the corresponding CSS custom 
- * property. 
+ * Retrieves a CSS custom property for a given variable name and key. 
+ * It fetches the design tokens map, then searches for the variable name 
+ * to find the associated variable and CSS custom property prefix.
+ * If the key exists within the variable, it returns a CSS custom property 
+ * combining the prefix and the key. If the variable name or the key doesn't 
+ * exist, it throws an error.
  *
- * The function retrieves the map from the `settings` function, then looks up 
- * the variable name in this map to find the corresponding variable and CSS 
- * custom property prefix. If the key is found in the variable, the function 
- * returns a CSS custom property with the prefix and the key. 
- * 
- * If either the variable name or the key is not found, the function throws an 
- * error.
- *
- * @param {string} $variableName - The name of the variable.
- * @param {string} $value - The key in the variable.
- * @returns {string} The CSS custom property corresponding to the provided 
- * variable and key.
- * @throws {error} If either the variable name or the key is not found.
+ * @param {string} $variableName - The variable name to look up.
+ * @param {string} $value - The key within the variable to look up.
+ * @returns {string} The CSS custom property associated with the variable and key.
+ * @throws {error} If the variable name or the key doesn't exist.
  */
 
 @function get($variableName: null, $value: null) {

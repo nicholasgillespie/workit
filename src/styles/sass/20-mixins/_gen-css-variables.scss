@@ -1,14 +1,15 @@
 @use "../10-functions/get-design-tokens" as get;
 
 /**
- * Takes a SCSS map and a prefix, and generates CSS custom properties (also 
- * known as CSS variables) based on them. 
+ * Takes a SCSS map of design tokens and a prefix string, and generates CSS 
+ * custom properties (also known as CSS variables) based on them. 
  *
- * The mixin iterates over the SCSS map, and for each key-value pair, it 
- * generates a CSS variable. The CSS variable's name is formed by concatenating 
- * the prefix and the key, and its value is the corresponding value from the map.
+ * The mixin iterates over the design tokens in the SCSS map, and for each 
+ * key-value pair, it generates a CSS variable. The CSS variable's name is 
+ * formed by concatenating the prefix string and the key, and its value is the 
+ * corresponding value from the map.
  *
- * @param {map} $variable - A SCSS map to generate CSS variables from.
+ * @param {map} $variable - A SCSS map of design tokens to generate CSS variables from.
  * @param {string} $prefix - A string that will be prepended to each key from 
  * the $variable map to form the CSS variable name.
  */

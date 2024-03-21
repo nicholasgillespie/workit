@@ -11,7 +11,8 @@
  * another map. This nested map contains two keys: "variable" and "prefix".
  *
  * The "variable" key corresponds to the imported map of design tokens, and 
- * the "prefix" key corresponds to a string used to generate CSS custom properties.
+ * the "prefix" key corresponds to the string prepended to each key when 
+ * generating CSS custom properties.
  *
  * @returns {map} A map where each key is a category of design tokens and each 
  * value is another map containing the design tokens and their corresponding 
