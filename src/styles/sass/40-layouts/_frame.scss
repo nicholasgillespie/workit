@@ -1,7 +1,5 @@
 .l-frame {
-  --inline: 16;
-  --block: 9;
-  aspect-ratio: var(--inline) / var(--block);
+  aspect-ratio: var(--frame-inline, 16) / var(--frame-block, 9);
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -16,27 +14,27 @@
   }
 
   &[data-frame="square"] {
-    --inline: 1;
-    --block: 1;
+    --frame-inline: 1;
+    --frame-block: 1;
   }
   &[data-frame="landscape"] {
-    --inline: 4;
-    --block: 3;
+    --frame-inline: 4;
+    --frame-block: 3;
   }
   &[data-frame="portrait"] {
-    --inline: 3;
-    --block: 4;
+    --frame-inline: 3;
+    --frame-block: 4;
   }
   &[data-frame="widescreen"] {
-    --inline: 16;
-    --block: 9;
+    --frame-inline: 16;
+    --frame-block: 9;
   }
   &[data-frame="ultrawide"] {
-    --inline: 21;
-    --block: 9;
+    --frame-inline: 21;
+    --frame-block: 9;
   }
   &[data-frame="golden"] {
-    --inline: 1.618;
-    --block: 1;
+    --frame-inline: 1.618;
+    --frame-block: 1;
   }
 }

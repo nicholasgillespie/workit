@@ -1,0 +1,14 @@
+.l-center {
+  width: 100%;
+  box-sizing: content-box;
+  margin-inline: auto;
+  text-align: center;
+  max-inline-size: var(--measure);
+  padding: calc(var(--gutter, 0));
+
+  &[data-center="child-elements"] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

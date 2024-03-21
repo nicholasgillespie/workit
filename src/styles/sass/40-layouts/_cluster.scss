@@ -14,13 +14,13 @@ CUSTOM PROPERTIES AND CONFIGURATION
 */
 
 .l-cluster {
-  --_cluster-gap: var(--gutter, 1rem); // var(--space-s-m)); ???
+  $cluster-gap: var(--gutter, 1rem); // var(--space-s-m)); ???
 
   display: flex;
   flex-wrap: var(--cluster-flex-wrap, wrap);
   justify-content: var(--cluster-justify-content, flex-start);
   align-items: var(--cluster-align-items, center);
-  gap: var(--cluster-gap, var(--_cluster-gap));
+  gap: var(--cluster-gap, #{$cluster-gap});
 
   &[data-cluster="space-between"] {
     --cluster-justify-content: space-between;

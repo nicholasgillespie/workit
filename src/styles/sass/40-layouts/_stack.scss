@@ -12,7 +12,7 @@ The 'space-between' attribute can be added to the stack to distribute the space 
 */
 
 .l-stack {
-  --_stack-space: var(--gutter, 1rem); // var(--space-s-m)); ???
+  $stack-space: var(--gutter, 1rem); // var(--space-s-m)); ???
 
   display: flex;
   flex-direction: column;
@@ -24,7 +24,7 @@ The 'space-between' attribute can be added to the stack to distribute the space 
   }
 
   & > * + * {
-    margin-block-start: var(--stack-space, var(--_stack-space));
+    margin-block-start: var(--stack-space, #{$stack-space});
   }
 
   &[data-stack="split-after-2"] {

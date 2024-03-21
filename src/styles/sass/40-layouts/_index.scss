@@ -1,6 +1,10 @@
 @use "./box";
+@use "./center";
 @use "./cluster";
+@use "./flow";
 @use "./frame";
+@use "./grid";
+@use "./sidebar";
 @use "./stack";
 @use "./switcher";
 @use "./wrapper";

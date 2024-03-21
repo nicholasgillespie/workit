@@ -11,14 +11,20 @@ CUSTOM PROPERTIES AND CONFIGURATION
 */
 
 .l-box {
-  --_box-padding: var(--gutter, 1rem); // var(--space-s-m)); ???
-  --_box-border-color: var(--border-color, black);
-  --_box-border-style: var(--border-style, solid);
-  --_box-border-width: var(--border-width, 1px);
+  $box-padding: var(--gutter, 1rem); // var(--space-s-m)); ???
 
   display: block;
-  padding: var(--box-padding, var(--_box-padding));
-  border: var(--box-border-color, var(--_box-border-color))
-    var(--box-border-style, var(--_box-border-style))
-    var(--box-border-width, var(--_box-border-width));
+  color: var(--box-color, black);
+  background-color: var(--box-bg, white);
+  padding: var(--box-padding, #{$box-padding});
+  border: var(--box-border, solid 1px black);
+
+  & * {
+    color: inherit;
+  }
+
+  &[data-box="light"] {
+    --box-color: white;
+    --box-bg: black;
+  }
 }

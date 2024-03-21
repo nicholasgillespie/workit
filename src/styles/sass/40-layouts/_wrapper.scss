@@ -1,19 +1,17 @@
-@use "../00-design-tokens/viewports" as *;
-
 /*
 WRAPPER COMPOSITION 
 A common wrapper/container
 */
-.l-wrapper {
-  --_wrapper-max-inline-size: #{calc(map-get($viewports, "max") * 1px)};
-  --_wrapper-padding-inline: var(--gutter, 5rem); // ???
 
-  max-inline-size: var(
-    --wrapper-max-inline-size,
-    var(--_wrapper-max-inline-size)
-  );
+@use "../00-design-tokens/viewports" as *;
+
+.l-wrapper {
+  $wrapper-max-inline-size: #{calc(map-get($viewports, "max") * 1px)};
+  $wrapper-padding-inline: var(--gutter, 5rem); // ???
+
+  max-inline-size: var(--wrapper-max-inline-size, #{$wrapper-max-inline-size});
   margin-inline: auto;
-  padding-inline: var(--wrapper-padding-inline, var(--_wrapper-padding-inline));
+  padding-inline: var(--wrapper-padding-inline, #{$wrapper-padding-inline});
   position: relative;
 
   &[data-wrapper="full-width"] {

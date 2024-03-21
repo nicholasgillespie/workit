@@ -14,26 +14,21 @@ The 'rtl' attribute can be added to the sidebar to reverse the direction of the 
 */
 
 .l-sidebar {
-  --_sidebar-gap: var(--gutter, 5rem); // var(--space-s-l)); ???
-  --_sidebar-target-width: 20rem;
-  --_sidebar-content-min-width: 60%;
+  $sidebar-gap: var(--gutter, 5rem); // var(--space-s-l)); ???
 
   display: flex;
   flex-wrap: wrap;
-  gap: var(--sidebar-gap, var(--_sidebar-gap));
+  gap: var(--sidebar-gap, #{$sidebar-gap});
 
   & > :first-child {
-    flex-basis: var(--sidebar-target-width, var(--_sidebar-target-width));
+    flex-basis: var(--sidebar-target-width, 20rem);
     flex-grow: 1;
   }
 
   & > :last-child {
     flex-basis: 0;
     flex-grow: 999;
-    min-inline-size: var(
-      --sidebar-content-min-width,
-      var(--_sidebar-content-min-width)
-    );
+    min-inline-size: var(--sidebar-content-min-width, 60%);
   }
 
   &[data-sidebar="rtl"] {
