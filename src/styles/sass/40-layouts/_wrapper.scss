@@ -1,11 +1,23 @@
+@use "../00-design-tokens/viewports" as *;
+
 /*
 WRAPPER COMPOSITION 
 A common wrapper/container
 */
 .l-wrapper {
+  --_wrapper-max-inline-size: #{calc(map-get($viewports, "max") * 1px)};
+  --_wrapper-padding-inline: var(--gutter, 5rem); // ???
+
+  max-inline-size: var(
+    --wrapper-max-inline-size,
+    var(--_wrapper-max-inline-size)
+  );
   margin-inline: auto;
-  max-width: clamp(16rem, var(--wrapper-max-width, 100vw), 80rem);
-  padding-left: var(--gutter);
-  padding-right: var(--gutter);
+  padding-inline: var(--wrapper-padding-inline, var(--_wrapper-padding-inline));
   position: relative;
+
+  &[data-wrapper="full-width"] {
+    --wrapper-max-inline-size: calc(100% - 2 * var(--gutter));
+    inline-size: 100%;
+  }
 }

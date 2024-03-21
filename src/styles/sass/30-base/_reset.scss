@@ -4,6 +4,7 @@
 *::after {
   margin: 0; // ??? check heydon + andy
   box-sizing: border-box;
+  box-sizing: content-box;
 }
 
 /* Prevent font size inflation */

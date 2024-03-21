@@ -27,14 +27,13 @@ The 'space-between' attribute can be added to the stack to distribute the space 
     margin-block-start: var(--stack-space, var(--_stack-space));
   }
 
-  &[data-stack="split-after"] {
+  &[data-stack="split-after-2"] {
     & > :only-child {
       block-size: 100%;
     }
 
     & > :nth-child(2) {
       margin-block-end: auto;
-      background-color: red;
     }
   }
 }

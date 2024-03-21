@@ -27,3 +27,6 @@ dist-ssr
 # Design files
 *.sketch
 *.fig
+
+# Ignore all files that start with 'temp'
+temp*

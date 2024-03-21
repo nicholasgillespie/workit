@@ -21,9 +21,4 @@ CUSTOM PROPERTIES AND CONFIGURATION
   border: var(--box-border-color, var(--_box-border-color))
     var(--box-border-style, var(--_box-border-style))
     var(--box-border-width, var(--_box-border-width));
-
-  // &[data-box="invert"] {
-  //   background-color: var(--color-invert);
-  //   color: var(--color-invert-text);
-  // }
 }

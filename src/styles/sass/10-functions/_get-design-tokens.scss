@@ -1,9 +1,9 @@
-@use "../00-settings/colors" as *;
-@use "../00-settings/fonts" as *;
-@use "../00-settings/spacing.scss" as *;
-@use "../00-settings/text-leading.scss" as *;
-@use "../00-settings/text-sizes.scss" as *;
-@use "../00-settings/text-weights.scss" as *;
+@use "../00-design-tokens/colors" as *;
+@use "../00-design-tokens/fonts" as *;
+@use "../00-design-tokens/spacing.scss" as *;
+@use "../00-design-tokens/text-leading.scss" as *;
+@use "../00-design-tokens/text-sizes.scss" as *;
+@use "../00-design-tokens/text-weights.scss" as *;
 
 /**
  * Takes several maps of design tokens and returns a map where each key is a 
@@ -18,8 +18,8 @@
  * CSS custom property prefixes.
  */
 
-@function settings() {
-  $index: (
+@function design-tokens() {
+  $tokens: (
     "color": (
       "variable": $colors,
       "prefix": "color",
@@ -45,5 +45,5 @@
       "prefix": "font",
     ),
   );
-  @return $index;
+  @return $tokens;
 }
