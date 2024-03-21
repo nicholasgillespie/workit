@@ -7,8 +7,8 @@ console.log("__dirname: ", __dirname);
 
 export default defineConfig({
   plugins: [vitePurgeCss()],
-  base: "/workit",
-  // root: resolve(__dirname, "/"),
+  base: "/index",
+  root: resolve(__dirname, "/"),
   // build: {
   //   outDir: "../dist",
   //   emptyOutDir: true,
