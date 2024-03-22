@@ -9,9 +9,9 @@
  * The utility shrinks the element to a 1px square, hides any resulting overflow, removes it from the page flow so it doesn’t affect surrounding layout, and ensures proper text announcement by screen readers.
  * 
  * Example: 
- * <div class="u-visually-hidden">
- *   <!-- content -->
- * </div>
+    <div class="u-visually-hidden">
+      <!-- content -->
+    </div>
  */
 
 .u-visually-hidden:not(:focus):not(:active) {

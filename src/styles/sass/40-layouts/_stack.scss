@@ -16,11 +16,11 @@
  * that aligns with the line-height of the text.
  * 
  * Example: 
- * <div class="l-stack" data-stack="split-after-2">
- *   <!-- items -->
- *   <!-- items -->
- *   <!-- items -->
- * </div>
+    <div class="l-wrapper l-stack">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </div>
  */
 
 .l-stack {

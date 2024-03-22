@@ -11,10 +11,10 @@
  * A data attribute [data-sidebar="rtl"] can be used to reverse the direction of the layout.
  * 
  * Example: 
- * <div class="l-sidebar" data-sidebar="rtl">
- *   <!-- main content -->
- *   <!-- sidebar content -->
- * </div>
+    <body class="l-sidebar" data-switcher="rtl">
+      <main>main</main>
+      <aside>aside</aside>
+    </body>
  */
 
 .l-sidebar {

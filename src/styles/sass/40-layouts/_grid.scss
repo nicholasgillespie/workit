@@ -12,10 +12,20 @@
  * A data attribute [data-layout="thirds"] can be used to create a three column grid layout.
  * 
  * Example: 
- * <div class="l-grid" data-layout="halves">
- *   <!-- items -->
- *   <!-- items -->
- * </div>
+    <ul class="l-grid">
+      <li class="l-box u-flow">
+        <h3>title</h3>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </li>
+      <li class="l-box u-flow">
+        <h3>title</h3>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </li>
+      <li class="l-box u-flow">
+        <h3>title</h3>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </li>
+    </ul>
  */
 
 .l-grid {

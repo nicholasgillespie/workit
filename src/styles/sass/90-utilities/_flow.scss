@@ -9,10 +9,10 @@
  * A data attribute [data-flow="none"] can be used to remove the space between items.
  * 
  * Example: 
- * <div class="u-flow" data-flow="none">
- *   <!-- items -->
- *   <!-- items -->
- * </div>
+    <div class="u-flow">
+      <h3>title</h3>
+      <p>Lorem ipsum dolor sit amet.</p>
+    </div>
  */
 
 .u-flow > * {

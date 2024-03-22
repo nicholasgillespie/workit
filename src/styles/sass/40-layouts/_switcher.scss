@@ -12,11 +12,11 @@
  * A data attribute [data-switcher="full-width-after-2"] can be used to make items full width after the second item.
  * 
  * Example: 
- * <div class="l-switcher" data-switcher="full-width-after-2">
- *   <!-- items -->
- *   <!-- items -->
- *   <!-- items -->
- * </div>
+    <div class="switcher" data-switcher="full-width-after-2">
+      <div><!-- child element --></div>
+      <div><!-- another child element --></div>
+      <div><!-- etc --></div>
+    </div>
  */
 
 .l-switcher {

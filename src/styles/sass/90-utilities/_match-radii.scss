@@ -8,9 +8,13 @@
  * --match-radii-inner-size: Defines the border radius of the child elements. Default is 0.25rem.
  * 
  * Example: 
- * <div class="u-match-radii">
- *   <!-- child elements -->
- * </div>
+    <ul class="l-grid">
+      <li class="l-box u-flow u-match-radii">
+        <div class="l-frame l-box">item</div>
+        <h3>title</h3>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </li>
+    </ul>
  */
 
 .u-match-radii {

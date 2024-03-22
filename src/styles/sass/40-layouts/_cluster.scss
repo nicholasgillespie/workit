@@ -9,13 +9,15 @@
  * --cluster-vertical-alignment: How items should align vertically. Can be any acceptable flexbox alignment value.
  * --cluster-gap: Defines the space between each item.
  * 
- * A data attribute [data-cluster="space-between"] can be used to distribute items evenly in the horizontal space.
- * 
  * Example: 
- * <div class="l-cluster" data-cluster="space-between">
- *   <!-- items -->
- *   <!-- items -->
- * </div>
+    <ul role="list" class="l-cluster">
+      <a href="/"><img src="" alt="logo" /></a>
+      <div class="l-cluster">
+        <li><a href="/">item</a></li>
+        <li><a href="/">item</a></li>
+        <li><a href="/">item</a></li>
+      </div>
+    </ul>
  */
 
 .l-cluster {
@@ -24,8 +26,4 @@
   justify-content: var(--cluster-horizontal-alignment, flex-start);
   align-items: var(--cluster-vertical-alignment, center);
   gap: var(--cluster-gap, var(--space-s-m));
-
-  &[data-cluster="space-between"] {
-    --cluster-horizontal-alignment: space-between;
-  }
 }

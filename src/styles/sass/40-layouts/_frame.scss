@@ -11,9 +11,13 @@
  * It applies object-fit: cover to its direct img or video children to ensure they cover the frame completely.
  * 
  * Example: 
- * <div class="l-frame" style="--frame-width: 4; --frame-height: 3;">
- *   <img src="image.jpg" alt="Description">
- * </div>
+    <ul class="l-grid">
+      <li class="l-box u-flow">
+        <img class="l-frame" src="" alt="image" style="--frame-width: 4; --frame-height: 3;" />
+        <h3>title</h3>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </li>
+    </ul>
  */
 
 .l-frame {

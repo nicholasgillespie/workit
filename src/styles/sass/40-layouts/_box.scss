@@ -12,9 +12,10 @@
  * A data attribute [data-box="invert"] can be used to invert the color and background color of the box.
  * 
  * Example: 
- * <div class="l-box" data-box="invert">
- *   <!-- content -->
- * </div>
+    <div class="l-box u-flow" data-box="invert">
+      <h3>title</h3>
+      <p>Lorem ipsum dolor sit amet.</p>
+    </div>
  */
 
 .l-box {

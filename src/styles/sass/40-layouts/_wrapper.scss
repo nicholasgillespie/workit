@@ -15,12 +15,13 @@
  * Info: https://piccalil.li/blog/creating-a-full-bleed-css-utility/
  * 
  * Example: 
- * <div class="l-wrapper" data-wrapper="full-width">
- *   <!-- content -->
- *   <div class="l-full-bleed">
- *     <!-- full width content -->
- *   </div>
- * </div>
+    <header class="l-wrapper" data-wrapper="full-width">
+      <ul role="list" class="l-cluster">
+        <li><a href="">item</a></li>
+        <li><a href="">item</a></li>
+        <li><a href="">item</a></li>
+      </ul>
+    </header>
  */
 
 .l-wrapper {
@@ -42,4 +43,8 @@
 .l-full-bleed {
   inline-size: 100vw;
   margin-inline-start: calc(50% - 50vw);
+
+  & > *:not(img) {
+    @extend .l-wrapper;
+  }
 }

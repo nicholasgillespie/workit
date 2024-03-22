@@ -9,9 +9,9 @@
  * This ensures the padding is applied to the top and bottom of the element, regardless of the writing mode.
  * 
  * Example: 
- * <div class="l-region" style="--region-padding: 2rem;">
- *   <!-- content -->
- * </div>
+    <section class="l-region" style="--region-padding: 2rem;">
+      <p>Lorem ipsum dolor sit amet.</p>
+    </section>
  */
 
 .l-region {

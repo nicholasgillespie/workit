@@ -9,9 +9,12 @@
  * A data attribute [data-center="child-elements"] can be used to center the child elements of the selected element.
  * 
  * Example: 
- * <div class="u-center" data-center="child-elements">
- *   <!-- child elements -->
- * </div>
+    <div class="l-wrapper l-region">
+      <div class="u-flow u-center">
+        <h3>title</h3>
+        <p style="--measure: none">Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div>
  */
 
 .u-center {
