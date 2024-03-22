@@ -26,6 +26,7 @@ ol[role="list"] {
 body {
   min-block-size: min(100dvh, 100vh);
   text-rendering: optimizeSpeed;
+  overflow-x: hidden;
 }
 
 // Set shorter line heights on interactive elements

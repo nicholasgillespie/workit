@@ -18,4 +18,14 @@ A common wrapper/container
     --wrapper-max-inline-size: 100%;
     inline-size: 100%;
   }
+
+  [data-wrapper="full-bleed"] {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    background-color: pink;
+
+    & > *:not(img) {
+      @extend .l-wrapper;
+    }
+  }
 }
