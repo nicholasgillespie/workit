@@ -1,3 +1,12 @@
+/**
+ * WRAPPER
+ * Sets a max width, adds a consistent gutter and horizontally
+ * centers the contents
+ * Info: https://piccalil.li/quick-tip/use-css-clamp-to-create-a-more-flexible-wrapper-utility/
+ */
+
+// https://piccalil.li/blog/creating-a-full-bleed-css-utility
+
 /*
 WRAPPER COMPOSITION 
 A common wrapper/container
@@ -20,12 +29,17 @@ A common wrapper/container
   }
 
   [data-wrapper="full-bleed"] {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    background-color: pink;
+    inline-size: 100vw;
+    margin-inline-start: calc(50% - 50vw);
 
-    & > *:not(img) {
+    & > *:not(img, picture) {
       @extend .l-wrapper;
+    }
+
+    & :where(img, picture) {
+      inline-size: 100%;
+      object-fit: cover;
+      max-block-size: 25rem;
     }
   }
 }

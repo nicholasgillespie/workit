@@ -1,0 +1,15 @@
+// https://set.studio/relative-rounded-corners/
+
+.u-match-radii {
+  --match-radii-padding: var(--space-s, 1.15rem);
+  --match-radii-inner-size: var(--space-3xs, 0.25rem);
+
+  padding: var(--match-radii-padding);
+  border-radius: calc(
+    var(--match-radii-inner-size) + var(--match-radii-padding)
+  );
+
+  & > * {
+    border-radius: var(--match-radii-inner-size);
+  }
+}

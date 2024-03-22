@@ -15,9 +15,9 @@ CUSTOM PROPERTIES AND CONFIGURATION
 
   display: block;
   color: var(--box-color, black);
-  background-color: var(--box-bg, white);
+  background-color: var(--box-bg, red);
   padding: var(--box-padding, #{$box-padding});
-  border: var(--box-border, solid 1px black);
+  border: var(--box-border-style, solid);
 
   & * {
     color: inherit;
