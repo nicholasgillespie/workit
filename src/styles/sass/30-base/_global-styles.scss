@@ -30,7 +30,8 @@ h4 {
   font-weight: get(font-weight, "bold");
   line-height: get(line-height, "flat");
   letter-spacing: -0.02ch;
-  text-wrap: balance;
+  // text-wrap: balance;
+  text-wrap: pretty;
   hyphens: auto;
 }
 
@@ -54,7 +55,7 @@ h4 {
 // CONTENT ELEMENTS ////////////////////
 // TEXT ELEMENTS
 p {
-  max-inline-size: var(--measure, 75ch);
+  max-inline-size: var(--measure, 65ch);
 }
 
 b {

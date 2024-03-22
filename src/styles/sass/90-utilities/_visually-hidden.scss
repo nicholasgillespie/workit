@@ -1,22 +1,30 @@
-// Visually hide text while keeping it accessible
-// Source: https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
-// https://practical-accessibility.today/chapters/hiding-techniques/
+/*
+ * VISUALLY HIDDEN
+ * A utility that hides an element visually but keeps it accessible to assistive technologies like screen readers.
+ * Info: https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
+ * 
+ * CUSTOM PROPERTIES AND CONFIGURATION
+ * No custom properties or configurations available for this utility.
+ * 
+ * The utility shrinks the element to a 1px square, hides any resulting overflow, removes it from the page flow so it doesn’t affect surrounding layout, and ensures proper text announcement by screen readers.
+ * 
+ * Example: 
+ * <div class="u-visually-hidden">
+ *   <!-- content -->
+ * </div>
+ */
 
-.visually-hidden:not(:focus):not(:active) {
-  /* shrink to a 1px square */
+.u-visually-hidden:not(:focus):not(:active) {
+  // shrink to a 1px square
+  // hide any resulting overflow
+  // clip the element to remove any visual trace
+  // remove from page flow so it doesn’t affect surrounding layout
+  // ensure proper text announcement by screen readers
   inline-size: 1px;
   block-size: 1px;
-
-  /* hide any resulting overflow */
   overflow: hidden;
-
-  /* clip the element to remove any visual trace */
-  clip: rect(0 0 0 0); /* for IE only */
+  clip: rect(0 0 0 0); // for IE only
   clip-path: inset(50%);
-
-  /* remove from page flow so it doesn’t affect surrounding layout */
   position: absolute;
-
-  /* ensure proper text announcement by screen readers */
   white-space: nowrap;
 }

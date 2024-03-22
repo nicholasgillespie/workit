@@ -1,40 +1,32 @@
+/*
+ * FRAME
+ * A layout that provides a container with a fixed aspect ratio.
+ * Info: https://every-layout.dev/layouts/frame/
+ * 
+ * CUSTOM PROPERTIES AND CONFIGURATION
+ * --frame-width: Defines the width of the frame. Default is 16.
+ * --frame-height: Defines the height of the frame. Default is 9.
+ * 
+ * The frame layout uses flexbox to center its content both vertically and horizontally.
+ * It applies object-fit: cover to its direct img or video children to ensure they cover the frame completely.
+ * 
+ * Example: 
+ * <div class="l-frame" style="--frame-width: 4; --frame-height: 3;">
+ *   <img src="image.jpg" alt="Description">
+ * </div>
+ */
+
 .l-frame {
-  aspect-ratio: var(--frame-inline, 16) / var(--frame-block, 9);
+  aspect-ratio: var(--frame-width, 16) / var(--frame-height, 9);
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  & > img,
-  & > video {
+  & > :where(img, video) {
     display: block;
-    max-inline-size: 100%;
-    max-block-size: 100%;
+    inline-size: 100%;
+    block-size: 100%;
     object-fit: cover;
-  }
-
-  &[data-frame="square"] {
-    --frame-inline: 1;
-    --frame-block: 1;
-  }
-  &[data-frame="landscape"] {
-    --frame-inline: 4;
-    --frame-block: 3;
-  }
-  &[data-frame="portrait"] {
-    --frame-inline: 3;
-    --frame-block: 4;
-  }
-  &[data-frame="widescreen"] {
-    --frame-inline: 16;
-    --frame-block: 9;
-  }
-  &[data-frame="ultrawide"] {
-    --frame-inline: 21;
-    --frame-block: 9;
-  }
-  &[data-frame="golden"] {
-    --frame-inline: 1.618;
-    --frame-block: 1;
   }
 }

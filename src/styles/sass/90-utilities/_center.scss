@@ -1,0 +1,27 @@
+/*
+ * CENTER
+ * A utility that centers an element both vertically and horizontally.
+ * Info: https://every-layout.dev/layouts/center/
+ * 
+ * CUSTOM PROPERTIES AND CONFIGURATION
+ * No custom properties or configurations available for this utility.
+ * 
+ * A data attribute [data-center="child-elements"] can be used to center the child elements of the selected element.
+ * 
+ * Example: 
+ * <div class="u-center" data-center="child-elements">
+ *   <!-- child elements -->
+ * </div>
+ */
+
+.u-center {
+  box-sizing: content-box;
+  margin-inline: auto;
+  text-align: center;
+
+  &[data-center="child-elements"] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,0 +1,26 @@
+/*
+ * FLOW
+ * A utility that applies consistent vertical spacing between direct child elements.
+* Info: https://24ways.org/2018/managing-flow-and-rhythm-with-css-custom-properties/
+ * 
+ * CUSTOM PROPERTIES AND CONFIGURATION
+ * --flow-space: Defines the space between each item. Default is 1em.
+ * 
+ * A data attribute [data-flow="none"] can be used to remove the space between items.
+ * 
+ * Example: 
+ * <div class="u-flow" data-flow="none">
+ *   <!-- items -->
+ *   <!-- items -->
+ * </div>
+ */
+
+.u-flow > * {
+  & + * {
+    margin-block-start: var(--flow-space, 1em);
+  }
+
+  &[data-flow="none"] {
+    --flow-space: 0;
+  }
+}

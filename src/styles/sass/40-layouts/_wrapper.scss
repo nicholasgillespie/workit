@@ -1,26 +1,32 @@
-/**
+/*
  * WRAPPER
- * Sets a max width, adds a consistent gutter and horizontally
- * centers the contents
+ * A layout that constrains the width of its content, centering it in the available space and adding padding on the sides.
  * Info: https://piccalil.li/quick-tip/use-css-clamp-to-create-a-more-flexible-wrapper-utility/
+ * 
+ * CUSTOM PROPERTIES AND CONFIGURATION
+ * --wrapper-max-inline-size: The maximum width of the content. Default is 85rem.
+ * --wrapper-padding-inline: The padding on the sides of the content. Default is the value of --gutter.
+ * 
+ * A data attribute [data-wrapper="full-width"] can be used to make the wrapper full width.
+ * A data attribute [data-wrapper="gutterless"] can be used to remove the padding from the sides of the wrapper.
+ * 
+ * FULL BLEED
+ * A utility class that makes an element span the full width of the viewport, regardless of the constraints of its parent elements.
+ * Info: https://piccalil.li/blog/creating-a-full-bleed-css-utility/
+ * 
+ * Example: 
+ * <div class="l-wrapper" data-wrapper="full-width">
+ *   <!-- content -->
+ *   <div class="l-full-bleed">
+ *     <!-- full width content -->
+ *   </div>
+ * </div>
  */
 
-// https://piccalil.li/blog/creating-a-full-bleed-css-utility
-
-/*
-WRAPPER COMPOSITION 
-A common wrapper/container
-*/
-
-@use "../00-design-tokens/viewports" as *;
-
 .l-wrapper {
-  $wrapper-max-inline-size: #{calc(map-get($viewports, "max") * 1px)};
-  $wrapper-padding-inline: var(--gutter, 5rem); // ???
-
-  max-inline-size: var(--wrapper-max-inline-size, #{$wrapper-max-inline-size});
+  max-inline-size: var(--wrapper-max-inline-size, 85rem);
   margin-inline: auto;
-  padding-inline: var(--wrapper-padding-inline, #{$wrapper-padding-inline});
+  padding-inline: var(--wrapper-padding-inline, var(--gutter));
   position: relative;
 
   &[data-wrapper="full-width"] {
@@ -28,18 +34,12 @@ A common wrapper/container
     inline-size: 100%;
   }
 
-  [data-wrapper="full-bleed"] {
-    inline-size: 100vw;
-    margin-inline-start: calc(50% - 50vw);
-
-    & > *:not(img, picture) {
-      @extend .l-wrapper;
-    }
-
-    & :where(img, picture) {
-      inline-size: 100%;
-      object-fit: cover;
-      max-block-size: 25rem;
-    }
+  &[data-wrapper="gutterless"] {
+    --wrapper-padding-inline: 0;
   }
+}
+
+.l-full-bleed {
+  inline-size: 100vw;
+  margin-inline-start: calc(50% - 50vw);
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="use-subgrid">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,29 +15,69 @@
   <body>
     <header class="l-wrapper" data-wrapper="full-width">header</header>
     <main>
-      <article class="l-wrapper ">
-          <div class="[ l-box l-flow ][ u-match-radii ]">
-            <div class="l-box l-frame" data-frame="landscape">
-            </div>
-            <h1 class="">innder radius</h1>
-            <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam unde doloribus dolor? Velit, facere. Rerum.</p>
+      <section
+        class="l-sidebar l-wrapper"
+        data-sidebar="rtl"
+        data-wrapper="gutterless"
+      >
+        <div>1</div>
+        <div>
+          <ul role="list" class="l-stack" data-cluster="space-between">
+            <li>x</li>
+            <li>x</li>
+            <li>x</li>
+          </ul>
+        </div>
+      </section>
+      <div class="l-wrapper l-region">
+        <ul role="list" class="l-grid">
+          <li class="l-box u-match-radii u-visually-hidden" data-box="invert">
+            <img class="l-frame" src="" alt="" />
+            <h3>title</h3>
+            <p>Lorem ipsum dolor sit amet.</p>
+          </li>
+          <li class="l-box">
+            <h3>title</h3>
+            <p>Lorem ipsum dolor sit amet.</p>
+          </li>
+          <li class="l-box">
+            <h3>title</h3>
+            <p>Lorem ipsum dolor sit amet.</p>
+          </li>
+          <li class="l-box">
+            <h3>title</h3>
+            <p>Lorem ipsum dolor sit amet.</p>
+          </li>
+        </ul>
+        <aside class="l-full-bleed">
+          <div class="l-wrapper">
+            <h2>Some aside content that is full bleed</h2>
+            <p>
+              This element contains the full bleed utility, so it's broken out
+              of the article’s horizontal bounds.
+            </p>
           </div>
-
-        <figure class="[ full-bleed ] [ feature-figure ]" data-wrapper="full-bleed">
-          <img 
-            src="https://source.unsplash.com/e_DmszdpETY/1200x600" 
-            srcset="https://source.unsplash.com/e_DmszdpETY/2400x1200 2400w,
-                    https://source.unsplash.com/e_DmszdpETY/1400x700 1400w,
-                    https://source.unsplash.com/e_DmszdpETY/1200x600 1200w,
-                    https://source.unsplash.com/e_DmszdpETY/800x400 800w,
-                    https://source.unsplash.com/e_DmszdpETY/600x300 600w"
-            sizes="100vw"
-            alt="low-angle photography of trees" 
-          />
-          <figcaption>A full bleed image, using the same utility - Photo by Jonathan Borba on Unsplash</figcaption>
-        </figure>
-        <h1>Full bleed CSS Utility</h1>
-        <p>You can break an element out of its container while maintaining its flow within that container using <code>margin</code> and <code>transform</code>. There’s two examples, both using the <code>.full-bleed</code> utility to achieve this affect.</p> 
+        </aside>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, vitae.
+          Blanditiis mollitia explicabo sapiente iusto quaerat minima
+          dignissimos nemo adipisci, praesentium facere suscipit, optio error,
+          modi amet? Placeat dolorum veniam voluptates, vitae nulla quos
+          distinctio praesentium. Nisi beatae tempore dolor possimus mollitia
+          architecto odio ad fugiat, velit aliquid rem quidem praesentium? Culpa
+          unde nesciunt tempora sapiente pariatur omnis quia dolores voluptatem
+          fugit molestias, eveniet atque hic inventore. Aliquam minima impedit
+          doloremque, tempora, tenetur odit itaque est eligendi, magnam ipsam
+          soluta omnis saepe praesentium ea qui. Dolor illo voluptatum a eius
+          exercitationem fugit cupiditate sit consectetur, nisi voluptate odio
+          quis consequuntur?
+        </p>
+      </div>
+      <div class="l-switcher" data-switcher="full-width-after-2">
+        <div>items</div>
+        <div>items</div>
+        <div>items</div>
+      </div>
     </main>
     <footer class="l-wrapper" data-wrapper="full-width">footer</footer>
   </body>

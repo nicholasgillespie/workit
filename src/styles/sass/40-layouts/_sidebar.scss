@@ -1,24 +1,26 @@
 /*
-C-SIDEBAR
-More info: https://every-layout.dev/layouts/sidebar/
-A layout that provides a sidebar and main content area with flexible widths.
-
-CUSTOM PROPERTIES AND CONFIGURATION
---gutter: This defines the space between the sidebar and the main content.
---sidebar-target-width: This defines the preferred width of the sidebar.
---sidebar-content-min-width: This defines the minimum width of the main content area.
-
-The first child of the sidebar is the sidebar itself, and the last child is the main content area. The sidebar has a flexible basis and can grow, while the main content area has a basis of 0 but can grow to fill the remaining space.
-
-The 'rtl' attribute can be added to the sidebar to reverse the direction of the layout.
-*/
+ * SIDEBAR
+ * A layout that provides a flexible sidebar and main content area.
+ * Info: https://every-layout.dev/layouts/sidebar/
+ * 
+ * CUSTOM PROPERTIES AND CONFIGURATION
+ * --sidebar-gap: Defines the space between the sidebar and the main content. Default is var(--space-s-l).
+ * --sidebar-target-width: Defines the preferred width of the sidebar. Default is 20rem.
+ * --sidebar-content-min-width: Defines the minimum width of the main content area. Default is 60%.
+ * 
+ * A data attribute [data-sidebar="rtl"] can be used to reverse the direction of the layout.
+ * 
+ * Example: 
+ * <div class="l-sidebar" data-sidebar="rtl">
+ *   <!-- main content -->
+ *   <!-- sidebar content -->
+ * </div>
+ */
 
 .l-sidebar {
-  $sidebar-gap: var(--gutter, 5rem); // var(--space-s-l)); ???
-
   display: flex;
   flex-wrap: wrap;
-  gap: var(--sidebar-gap, #{$sidebar-gap});
+  gap: var(--sidebar-gap, var(--space-s-l));
 
   & > :first-child {
     flex-basis: var(--sidebar-target-width, 20rem);

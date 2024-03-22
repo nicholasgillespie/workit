@@ -1,8 +1,21 @@
-// https://set.studio/relative-rounded-corners/
+/*
+ * MATCH RADII
+ * A utility that matches the border radius of a parent element and its child elements.
+ * Info: https://set.studio/relative-rounded-corners/
+ * 
+ * CUSTOM PROPERTIES AND CONFIGURATION
+ * --match-radii-padding: Defines the padding of the parent element. Default is 1.15rem.
+ * --match-radii-inner-size: Defines the border radius of the child elements. Default is 0.25rem.
+ * 
+ * Example: 
+ * <div class="u-match-radii">
+ *   <!-- child elements -->
+ * </div>
+ */
 
 .u-match-radii {
-  --match-radii-padding: var(--space-s, 1.15rem);
-  --match-radii-inner-size: var(--space-3xs, 0.25rem);
+  --match-radii-padding: var(--space-s-m, 1.15rem);
+  --match-radii-inner-size: var(--space-3xs, -1.15rem);
 
   padding: var(--match-radii-padding);
   border-radius: calc(

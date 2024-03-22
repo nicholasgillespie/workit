@@ -1,31 +1,36 @@
 /*
-C-SWITCHER
-More info: https://every-layout.dev/layouts/switcher/
-A layout that provides a way to switch between different views or states.
-
-CUSTOM PROPERTIES AND CONFIGURATION
---gutter: This defines the space between each switcher item.
---switcher-target-width: Determines the target width of the switcher items.
---switcher-align-items: Determines how the items are aligned along the cross axis.
-
-The 'space-between' attribute can be added to the switcher to distribute the space between the items evenly.
-*/
+ * SWITCHER
+ * A layout that allows you to switch the layout of items based on available space.
+ * Info: https://every-layout.dev/layouts/switcher/
+ * 
+ * CUSTOM PROPERTIES AND CONFIGURATION
+ * --switcher-gap: Defines the space between each item. Default is var(--space-s-l).
+ * --switcher-content-alignment: How items should distribute in the vertical space when there is extra space in the cross-axis. Default is flex-start.
+ * --switcher-vertical-alignment: How items should align horizontally. Default is flex-start.
+ * --switcher-target-width: The target width for each item. Default is 30rem.
+ * 
+ * A data attribute [data-switcher="full-width-after-2"] can be used to make items full width after the second item.
+ * 
+ * Example: 
+ * <div class="l-switcher" data-switcher="full-width-after-2">
+ *   <!-- items -->
+ *   <!-- items -->
+ *   <!-- items -->
+ * </div>
+ */
 
 .l-switcher {
-  $switcher-gap: var(--gutter, 1rem); // var(--space-s-l)); ???
-
   display: flex;
   flex-wrap: wrap;
-  gap: var(--switcher-gap, #{$switcher-gap});
-  align-content: var(--switcher-align-content, flex-start);
-  align-items: var(--switcher-align-items, flex-start);
+  gap: var(--switcher-gap, var(--space-s-l));
+  align-content: var(--switcher-content-alignment, flex-start);
+  align-items: var(--switcher-vertical-alignment, flex-start);
 
   & > * {
     flex-grow: 1;
     flex-basis: calc((var(--switcher-target-width, 30rem) - 100%) * 999);
   }
 
-  /* Max 2 items, so anything greater than 2 is full width */
   &[data-switcher="full-width-after-2"] {
     & > :nth-child(n + 3) {
       flex-basis: 100%;

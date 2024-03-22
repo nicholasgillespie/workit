@@ -1,28 +1,31 @@
 /*
-C-CLUSTER
-More info: https://every-layout.dev/layouts/cluster/
-A layout that lets you distribute items with consistent
-spacing, regardless of their size
-
-CUSTOM PROPERTIES AND CONFIGURATION
---gutter: This defines the space between each item.
---cluster-flex-wrap: Determines whether the flex items are forced onto one line or can wrap onto multiple lines.
---cluster-flex-direction: Specifies the direction of the flexible items.
---cluster-justify-content: How items should align horizontally. Can be any acceptable flexbox alignment value.
---cluster-align-items: How items should align vertically. Can be any acceptable flexbox alignment value.
---cluster-gap: The size of the gap between grid cells.
-*/
+ * CLUSTER
+ * A layout that lets you distribute items with consistent spacing, regardless of their size.
+ * Info: https://every-layout.dev/layouts/cluster/
+ * 
+ * CUSTOM PROPERTIES AND CONFIGURATION
+ * --cluster-flex-wrap: Whether items should wrap onto the next line. Can be any acceptable flexbox wrap value.
+ * --cluster-horizontal-alignment: How items should align horizontally. Can be any acceptable flexbox alignment value.
+ * --cluster-vertical-alignment: How items should align vertically. Can be any acceptable flexbox alignment value.
+ * --cluster-gap: Defines the space between each item.
+ * 
+ * A data attribute [data-cluster="space-between"] can be used to distribute items evenly in the horizontal space.
+ * 
+ * Example: 
+ * <div class="l-cluster" data-cluster="space-between">
+ *   <!-- items -->
+ *   <!-- items -->
+ * </div>
+ */
 
 .l-cluster {
-  $cluster-gap: var(--gutter, 1rem); // var(--space-s-m)); ???
-
   display: flex;
   flex-wrap: var(--cluster-flex-wrap, wrap);
-  justify-content: var(--cluster-justify-content, flex-start);
-  align-items: var(--cluster-align-items, center);
-  gap: var(--cluster-gap, #{$cluster-gap});
+  justify-content: var(--cluster-horizontal-alignment, flex-start);
+  align-items: var(--cluster-vertical-alignment, center);
+  gap: var(--cluster-gap, var(--space-s-m));
 
   &[data-cluster="space-between"] {
-    --cluster-justify-content: space-between;
+    --cluster-horizontal-alignment: space-between;
   }
 }

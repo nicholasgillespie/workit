@@ -1,19 +1,29 @@
 /*
-C-STACK
-More info: https://every-layout.dev/layouts/stack/
-A layout that provides a vertical stack of elements with consistent spacing.
-
-CUSTOM PROPERTIES AND CONFIGURATION
---stack-space : This defines the space between each stacked item.
---stack-justify-content: Determines how the items are justified along the vertical axis.
---stack-align-items: Determines how the items are aligned along the horizontal axis.
-
-The 'space-between' attribute can be added to the stack to distribute the space between the items evenly.
-*/
+ * STACK
+ * A layout that provides a vertical stack of elements with consistent spacing.
+ * Info: https://every-layout.dev/layouts/stack/
+ * 
+ * CUSTOM PROPERTIES AND CONFIGURATION
+ * --stack-space: Defines the space between each item. Default is var(--space-s-m).
+ * --stack-justify-content: Defines how items should justify in the vertical space. Default is flex-start.
+ * --stack-align-items: Defines how items should align horizontally. Default is flex-start.
+ * 
+ * A data attribute [data-stack="split-after-2"] can be used to distribute items evenly in the vertical space after the second item.
+ * 
+ * The default stack space of 1.5rem is chosen based on the principle that the vertical spacing of a design should be based on the standard line-height. 
+ * As text dominates most pages’ layout, making one line of text a natural denominator, if the body text line-height is 1.5 (i.e., 1.5 times the font-size), 
+ * it makes sense to use 1.5 as the ratio for the modular scale. This value is used as the vertical margin between stacked elements, providing consistent spacing 
+ * that aligns with the line-height of the text.
+ * 
+ * Example: 
+ * <div class="l-stack" data-stack="split-after-2">
+ *   <!-- items -->
+ *   <!-- items -->
+ *   <!-- items -->
+ * </div>
+ */
 
 .l-stack {
-  $stack-space: var(--gutter, 1rem); // var(--space-s-m)); ???
-
   display: flex;
   flex-direction: column;
   justify-content: var(--stack-justify-content, flex-start);
@@ -24,14 +34,13 @@ The 'space-between' attribute can be added to the stack to distribute the space 
   }
 
   & > * + * {
-    margin-block-start: var(--stack-space, #{$stack-space});
+    margin-block-start: var(--stack-space, 1.5rem);
   }
 
   &[data-stack="split-after-2"] {
     & > :only-child {
       block-size: 100%;
     }
-
     & > :nth-child(2) {
       margin-block-end: auto;
     }
