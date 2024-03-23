@@ -25,7 +25,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: var(--repel-vertical-alignment, center);
-  gap: var(--gutter, var(--space-s-m));
+  gap: var(--repel-gap, var(--space-s-m));
 
   &[data-repel="nowrap"] {
     flex-wrap: nowrap;

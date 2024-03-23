@@ -22,9 +22,9 @@
 .l-switcher {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--switcher-gap, var(--space-s-l));
   align-content: var(--switcher-content-alignment, flex-start);
   align-items: var(--switcher-vertical-alignment, flex-start);
+  gap: var(--switcher-gap, var(--space-s-l));
 
   & > * {
     flex-grow: 1;

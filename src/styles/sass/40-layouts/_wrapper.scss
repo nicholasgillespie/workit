@@ -1,50 +1,47 @@
 /*
  * WRAPPER
  * A layout that constrains the width of its content, centering it in the available space and adding padding on the sides.
- * Info: https://piccalil.li/quick-tip/use-css-clamp-to-create-a-more-flexible-wrapper-utility/
+ * Info: https://www.joshwcomeau.com/css/full-bleed/
  * 
  * CUSTOM PROPERTIES AND CONFIGURATION
  * --wrapper-max-inline-size: The maximum width of the content. Default is 85rem.
- * --wrapper-padding-inline: The padding on the sides of the content. Default is the value of --gutter.
+ * --wrapper-padding: The padding on the sides of the content. Default is the value of --space-s-l.
  * 
- * A data attribute [data-wrapper="full-width"] can be used to make the wrapper full width.
- * A data attribute [data-wrapper="gutterless"] can be used to remove the padding from the sides of the wrapper.
- * 
- * FULL BLEED
+ * FULL-BLEED
  * A utility class that makes an element span the full width of the viewport, regardless of the constraints of its parent elements.
- * Info: https://piccalil.li/blog/creating-a-full-bleed-css-utility/
+ * 
+ * A data attribute [data-full-bleed="cover"] can be used to make the full-bleed element cover its content.
  * 
  * Example: 
-    <header class="l-wrapper" data-wrapper="full-width">
-      <ul role="list" class="l-cluster">
-        <li><a href="">item</a></li>
-        <li><a href="">item</a></li>
-        <li><a href="">item</a></li>
-      </ul>
-    </header>
+    <main class="l-wrapper">
+      <h1>Some Heading</h1>
+      <p>Some content and stuff</p>
+      <img class="l-full-bleed" data-full-bleed="cover" alt="cute meerkat" src="/meerkat.jpg" />
+    </main>
  */
 
 .l-wrapper {
-  max-inline-size: var(--wrapper-max-inline-size, 85rem);
-  margin-inline: auto;
-  padding-inline: var(--wrapper-padding-inline, var(--gutter));
-  position: relative;
+  display: grid;
+  grid-template-columns:
+    1fr
+    min(
+      var(--wrapper-max-inline-size, 85rem),
+      calc(100% - calc(var(--wrapper-padding, var(--space-s-l)) * 2))
+    )
+    1fr;
+  grid-column-gap: var(--wrapper-padding, var(--space-s-l));
 
-  &[data-wrapper="full-width"] {
-    --wrapper-max-inline-size: 100%;
+  > * {
+    grid-column: 2;
+  }
+
+  .l-full-bleed {
     inline-size: 100%;
-  }
+    grid-column: 1 / -1;
 
-  &[data-wrapper="gutterless"] {
-    --wrapper-padding-inline: 0;
-  }
-}
-
-.l-full-bleed {
-  inline-size: 100vw;
-  margin-inline-start: calc(50% - 50vw);
-
-  & > *:not(img) {
-    @extend .l-wrapper;
+    &[data-full-bleed="cover"] {
+      max-block-size: var(--wrapper-cover-block-size, 25rem);
+      object-fit: cover;
+    }
   }
 }
