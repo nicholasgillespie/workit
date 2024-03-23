@@ -19,8 +19,8 @@
 .l-cover {
   display: flex;
   flex-direction: column;
-  min-block-size: 100vh;
-  padding: 1rem;
+  min-block-size: 100dvh;
+  padding: var(--cover-padding, var(--space-s-l));
 
   & > * {
     margin-block: 1rem;

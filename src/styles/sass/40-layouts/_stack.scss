@@ -5,8 +5,8 @@
  * 
  * CUSTOM PROPERTIES AND CONFIGURATION
  * --stack-space: Defines the space between each item. Default is var(--space-s-m).
- * --stack-justify-content: Defines how items should justify in the vertical space. Default is flex-start.
- * --stack-align-items: Defines how items should align horizontally. Default is flex-start.
+ * --stack-vertical-alignment: Defines how items should justify in the vertical space. Default is flex-start.
+ * --stack-horizontal-alignment: Defines how items should align horizontally. Default is flex-start.
  * 
  * A data attribute [data-stack="split-after-2"] can be used to distribute items evenly in the vertical space after the second item.
  * 
@@ -26,8 +26,8 @@
 .l-stack {
   display: flex;
   flex-direction: column;
-  justify-content: var(--stack-justify-content, flex-start);
-  align-items: var(--stack-align-items, flex-start);
+  justify-content: var(--stack-vertical-alignment, flex-start);
+  align-items: var(--stack-horizontal-alignment, flex-start);
 
   & > * {
     margin-block: 0;
@@ -35,14 +35,5 @@
 
   & > * + * {
     margin-block-start: var(--stack-space, 1.5rem);
-  }
-
-  &[data-stack="split-after-2"] {
-    & > :only-child {
-      block-size: 100%;
-    }
-    & > :nth-child(2) {
-      margin-block-end: auto;
-    }
   }
 }

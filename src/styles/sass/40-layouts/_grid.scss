@@ -36,13 +36,21 @@
   );
   gap: var(--grid-gap, var(--space-s-l));
 
-  &[data-layout="halves"] {
+  &[data-grid="halves"] {
     --grid-placement: auto-fit;
     --grid-min-item-size: clamp(16rem, 50vw, 33rem);
   }
 
-  &[data-layout="thirds"] {
+  &[data-grid="thirds"] {
     --grid-placement: auto-fit;
     --grid-min-item-size: clamp(16rem, 33%, 20rem);
+  }
+
+  &[data-grid="subgrid"] > * {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span var(--subgrid-rows, 3);
+    grid-column: span var(--subgrid-columns, 1);
+    gap: var(--subgrid-gap, var(--space-s-m));
   }
 }

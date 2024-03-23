@@ -7,7 +7,7 @@
  * --repel-vertical-alignment: How items should align vertically. Can be any acceptable flexbox alignment value.
  * --gutter: Defines the space between each item. Can be any acceptable size value.
  * 
- * A data attribute [data-nowrap] can be used to prevent items from wrapping onto the next line.
+ * A data attribute [data-repel="nowrap"] can be used to prevent items from wrapping onto the next line.
  * 
  * Example: 
     <ul role="list" class="l-repel">
@@ -27,7 +27,7 @@
   align-items: var(--repel-vertical-alignment, center);
   gap: var(--gutter, var(--space-s-m));
 
-  &[data-nowrap] {
+  &[data-repel="nowrap"] {
     flex-wrap: nowrap;
   }
 }

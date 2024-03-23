@@ -4,9 +4,11 @@
  * Info: https://every-layout.dev/layouts/center/
  * 
  * CUSTOM PROPERTIES AND CONFIGURATION
- * No custom properties or configurations available for this utility.
+ * --center-box-sizing: Controls the box-sizing property of the .u-center class. Defaults to 'content-box'.
  * 
  * A data attribute [data-center="child-elements"] can be used to center the child elements of the selected element.
+ * 
+ * The 'content-box' value for the 'box-sizing' property is used to ensure that any padding added to the element does not contribute to its width, thus preserving the maximum width of the content area. In the CSS box model, the 'content-box' value specifies that the width and height properties include only the content. Padding and border are added on top of the width and height.
  * 
  * Example: 
     <div class="l-wrapper l-region">
@@ -18,7 +20,7 @@
  */
 
 .u-center {
-  box-sizing: content-box;
+  box-sizing: var(--center-box-sizing, content-box);
   margin-inline: auto;
   text-align: center;
 
