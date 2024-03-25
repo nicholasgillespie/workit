@@ -4,23 +4,14 @@
  * Info: https://every-layout.dev/layouts/cover/
  * 
  * CUSTOM PROPERTIES AND CONFIGURATION
- * --cover-flex-direction: The direction in which child elements are laid out. Can be any acceptable flexbox direction value.
- * --cover-padding: Defines the space around the inside of the Cover container.
- * --cover-min-block-size: The minimum height of the Cover container. Can be any acceptable size value.
- * 
- * Example: 
-    <div class="l-cover">
-      <div>header</div>
-      <h1>centered</h1>
-      <div>footer</div>
-    </div>
+ * --cover-padding: The space around the inside of the Cover container.
  */
 
 .l-cover {
   display: flex;
   flex-direction: column;
   min-block-size: min(100dvh, 100vh);
-  padding: var(--cover-padding, var(--space-s-l));
+  padding: var(--cover-padding, var(--gutter));
 
   & > * {
     margin-block: 1rem;

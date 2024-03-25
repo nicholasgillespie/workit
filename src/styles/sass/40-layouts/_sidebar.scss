@@ -4,25 +4,19 @@
  * Info: https://every-layout.dev/layouts/sidebar/
  * 
  * CUSTOM PROPERTIES AND CONFIGURATION
- * --sidebar-gap: Defines the space between the sidebar and the main content. Default is var(--space-s-l).
- * --sidebar-target-width: Defines the preferred width of the sidebar. Default is 20rem.
- * --sidebar-content-min-width: Defines the minimum width of the main content area. Default is 60%.
- * --sidebar-vertical-alignment: Controls the vertical alignment of the sidebar and main content. Default is 'stretch'.
+ * --sidebar-target-width: The preferred width of the sidebar.
+ * --sidebar-content-min-width: The minimum width of the main content area.
+ * --sidebar-vertical-alignment: The vertical alignment of the sidebar and main content.
+ * --sidebar-gap: The space between the sidebar and the main content.
  * 
  * A data attribute [data-sidebar="rtl"] can be used to reverse the direction of the layout.
- * 
- * Example: 
-    <body class="l-sidebar" data-switcher="rtl">
-      <main>main</main>
-      <aside>aside</aside>
-    </body>
  */
 
 .l-sidebar {
   display: flex;
   flex-wrap: wrap;
   align-items: var(--sidebar-vertical-alignment, stretch);
-  gap: var(--sidebar-gap, var(--space-s-l));
+  gap: var(--sidebar-gap, var(--gutter));
 
   & > :first-child {
     flex-basis: var(--sidebar-target-width, 20rem);

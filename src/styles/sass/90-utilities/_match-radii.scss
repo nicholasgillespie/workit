@@ -4,29 +4,20 @@
  * Info: https://set.studio/relative-rounded-corners/
  * 
  * CUSTOM PROPERTIES AND CONFIGURATION
- * --match-radii-padding: Defines the padding of the parent element. Default is 1.15rem.
- * --match-radii-inner-size: Defines the border radius of the child elements. Default is 0.25rem.
- * 
- * Example: 
-    <ul class="l-grid">
-      <li class="l-box u-flow u-match-radii">
-        <div class="l-frame l-box">item</div>
-        <h3>title</h3>
-        <p>Lorem ipsum dolor sit amet.</p>
-      </li>
-    </ul>
+ * --match-radii-padding: Defines the padding of the parent element.
+ * --match-radii-inner-radius: Defines the border radius of the child elements.
  */
 
 .u-match-radii {
-  --match-radii-padding: var(--space-s-m, 1.15rem);
-  --match-radii-inner-size: var(--space-3xs, -1.15rem);
+  --match-radii-padding: var(--box-padding, 8px);
+  --match-radii-inner-radius: var(--box-border-radius, 12px);
 
   padding: var(--match-radii-padding);
   border-radius: calc(
-    var(--match-radii-inner-size) + var(--match-radii-padding)
+    var(--match-radii-inner-radius) + var(--match-radii-padding)
   );
 
   & > * {
-    border-radius: var(--match-radii-inner-size);
+    border-radius: var(--match-radii-inner-radius);
   }
 }

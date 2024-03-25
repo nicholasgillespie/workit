@@ -42,9 +42,10 @@ a:not([class]) {
   color: currentColor;
 }
 
-// Make images easier to work with
+// Make media easier to work with
 img,
-picture {
+picture,
+video {
   max-inline-size: 100%;
   display: block;
 }

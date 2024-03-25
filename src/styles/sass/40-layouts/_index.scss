@@ -1,9 +1,10 @@
 @use "./box";
 @use "./cluster";
+@use "./columns";
+@use "./content";
 @use "./cover";
 @use "./frame";
 @use "./grid";
-@use "./layout";
 @use "./region";
 @use "./repel";
 @use "./sidebar";

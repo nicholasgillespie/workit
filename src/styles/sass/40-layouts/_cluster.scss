@@ -4,20 +4,10 @@
  * Info: https://every-layout.dev/layouts/cluster/
  * 
  * CUSTOM PROPERTIES AND CONFIGURATION
- * --cluster-flex-wrap: Whether items should wrap onto the next line. Can be any acceptable flexbox wrap value.
- * --cluster-horizontal-alignment: How items should align horizontally. Can be any acceptable flexbox alignment value.
- * --cluster-vertical-alignment: How items should align vertically. Can be any acceptable flexbox alignment value.
- * --cluster-gap: Defines the space between each item.
- * 
- * Example: 
-    <ul role="list" class="l-cluster">
-      <a href="/"><img src="" alt="logo" /></a>
-      <div class="l-cluster">
-        <li><a href="/">item</a></li>
-        <li><a href="/">item</a></li>
-        <li><a href="/">item</a></li>
-      </div>
-    </ul>
+ * --cluster-flex-wrap: Whether items should wrap onto the next line.
+ * --cluster-horizontal-alignment: How items should align horizontally.
+ * --cluster-vertical-alignment: How items should align vertically.
+ * --cluster-gap: The space between each item.
  */
 
 .l-cluster {
@@ -25,5 +15,5 @@
   flex-wrap: var(--cluster-flex-wrap, wrap);
   justify-content: var(--cluster-horizontal-alignment, flex-start);
   align-items: var(--cluster-vertical-alignment, center);
-  gap: var(--cluster-gap, var(--space-s-m));
+  gap: var(--cluster-gap, var(--gutter));
 }

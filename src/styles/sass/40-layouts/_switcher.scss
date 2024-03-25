@@ -4,19 +4,12 @@
  * Info: https://every-layout.dev/layouts/switcher/
  * 
  * CUSTOM PROPERTIES AND CONFIGURATION
- * --switcher-gap: Defines the space between each item. Default is var(--space-s-l).
- * --switcher-content-alignment: How items should distribute in the vertical space when there is extra space in the cross-axis. Default is flex-start.
- * --switcher-vertical-alignment: How items should align horizontally. Default is flex-start.
- * --switcher-target-width: The target width for each item. Default is 30rem.
+ * --switcher-gap: The space between each item.
+ * --switcher-content-alignment: How items should distribute in the vertical space when there is extra space in the cross-axis.
+ * --switcher-vertical-alignment: How items should align horizontally.
+ * --switcher-target-width: The target width for each item.
  * 
- * A data attribute [data-switcher="full-width-after-2"] can be used to make items full width after the second item.
- * 
- * Example: 
-    <div class="switcher" data-switcher="full-width-after-2">
-      <div><!-- child element --></div>
-      <div><!-- another child element --></div>
-      <div><!-- etc --></div>
-    </div>
+ * A data attribute [data-switcher="full-width-from-third"] can be used to make items full width after the second item.
  */
 
 .l-switcher {
@@ -24,14 +17,14 @@
   flex-wrap: wrap;
   align-content: var(--switcher-content-alignment, flex-start);
   align-items: var(--switcher-vertical-alignment, flex-start);
-  gap: var(--switcher-gap, var(--space-s-l));
+  gap: var(--switcher-gap, var(--gutter));
 
   & > * {
     flex-grow: 1;
     flex-basis: calc((var(--switcher-target-width, 30rem) - 100%) * 999);
   }
 
-  &[data-switcher="full-width-after-2"] {
+  &[data-switcher="full-width-from-third"] {
     & > :nth-child(n + 3) {
       flex-basis: 100%;
     }

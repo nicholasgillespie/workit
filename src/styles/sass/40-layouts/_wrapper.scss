@@ -1,23 +1,13 @@
 /*
- * WRAPPER
- * A layout that constrains the width of its content, centering it in the available space and adding padding on the sides.
+ * WRAPPER & FULL-WIDTH
+ * A layout that constrains the width of its content, centering it in the available space and adding padding on the sides. 
+ * It also offers an option to make an element span the full width of the viewport (full-bleed).
  * Info: https://www.joshwcomeau.com/css/full-bleed/
  * 
  * CUSTOM PROPERTIES AND CONFIGURATION
- * --wrapper-max-inline-size: The maximum width of the content. Default is 85rem.
- * --wrapper-padding: The padding on the sides of the content. Default is the value of --space-s-l.
- * 
- * FULL-BLEED
- * A utility class that makes an element span the full width of the viewport, regardless of the constraints of its parent elements.
- * 
- * A data attribute [data-full-bleed="cover"] can be used to make the full-bleed element cover its content.
- * 
- * Example: 
-    <main class="l-wrapper">
-      <h1>Some Heading</h1>
-      <p>Some content and stuff</p>
-      <img class="l-full-bleed" data-full-bleed="cover" alt="cute meerkat" src="/meerkat.jpg" />
-    </main>
+ * --wrapper-max-inline-size: The maximum width of the content.
+ * --wrapper-padding: The padding on the sides of the content.
+ * --full-width-padding: Defines the padding for the contained full-bleed element.
  */
 
 .l-wrapper {
@@ -26,22 +16,26 @@
     1fr
     min(
       var(--wrapper-max-inline-size, 85rem),
-      calc(100% - calc(var(--wrapper-padding, var(--space-s-l)) * 2))
+      calc(100% - calc(var(--wrapper-padding, var(--gutter)) * 2))
     )
     1fr;
-  grid-column-gap: var(--wrapper-padding, var(--space-s-l));
+  grid-column-gap: var(--wrapper-padding, var(--gutter));
 
   > * {
     grid-column: 2;
   }
 
-  .l-full-bleed {
+  &__full-width {
     inline-size: 100%;
     grid-column: 1 / -1;
 
-    &[data-full-bleed="cover"] {
-      max-block-size: var(--wrapper-cover-block-size, 25rem);
-      object-fit: cover;
+    &[data-full-width="contained"] {
+      padding-inline: var(--full-width-padding, var(--gutter));
+
+      & > * {
+        max-inline-size: var(--wrapper-max-inline-size, 85rem);
+        margin-inline: auto;
+      }
     }
   }
 }

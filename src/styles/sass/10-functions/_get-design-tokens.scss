@@ -4,6 +4,7 @@
 @use "../00-design-tokens/text-leading.scss" as *;
 @use "../00-design-tokens/text-sizes.scss" as *;
 @use "../00-design-tokens/text-weights.scss" as *;
+@use "../00-design-tokens/viewports.scss" as *;
 
 /**
  * Takes several maps of design tokens and returns a map where each key is a 

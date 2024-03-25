@@ -4,33 +4,17 @@
  * Info: https://every-layout.dev/layouts/grid/
  * 
  * CUSTOM PROPERTIES AND CONFIGURATION
- * --grid-placement: Defines how many columns to create in the grid. Default is auto-fill.
- * --grid-min-item-size: Defines the minimum size of grid items. Default is 16rem.
- * --gutter: Defines the space between grid items. Default is var(--space-s-l).
- * 
- * --subgrid-rows: Defines the number of rows a subgrid item should span. Default is 3.
- * --subgrid-columns: Defines the number of columns a subgrid item should span. Default is 1.
- * --subgrid-gap: Defines the space between subgrid items. Default is var(--space-s-l).
+ * --grid-placement: How many columns to create in the grid.
+ * --grid-min-item-size: The minimum size of grid items.
+ * --grid-gap: The space between grid items.
  * 
  * A data attribute [data-grid="halves"] can be used to create a 50/50 split layout.
  * A data attribute [data-grid="thirds"] can be used to create a three column grid layout.
+
  * A data attribute [data-grid="subgrid"] can be used to create a subgrid layout that inherits the row and column sizes from its parent grid.
- * 
- * Example: 
-    <ul class="l-grid">
-      <li class="l-box u-flow">
-        <h3>title</h3>
-        <p>Lorem ipsum dolor sit amet.</p>
-      </li>
-      <li class="l-box u-flow">
-        <h3>title</h3>
-        <p>Lorem ipsum dolor sit amet.</p>
-      </li>
-      <li class="l-box u-flow">
-        <h3>title</h3>
-        <p>Lorem ipsum dolor sit amet.</p>
-      </li>
-    </ul>
+ * --subgrid-rows: The number of rows a subgrid item should span.
+ * --subgrid-columns: The number of columns a subgrid item should span.
+ * --subgrid-gap: The space between subgrid items.
  */
 
 .l-grid {
@@ -39,7 +23,7 @@
     var(--grid-placement, auto-fill),
     minmax(min(var(--grid-min-item-size, 16rem), 100%), 1fr)
   );
-  gap: var(--grid-gap, var(--space-s-l));
+  gap: var(--grid-gap, var(--gutter));
   container-type: inline-size;
 
   &[data-grid="halves"] {
@@ -58,7 +42,7 @@
       grid-template-rows: subgrid;
       grid-row: span var(--subgrid-rows, 3);
       grid-column: span var(--subgrid-columns, 1);
-      gap: var(--subgrid-gap, var(--space-s-l));
+      gap: var(--subgrid-gap, var(--gutter));
     }
   }
 }
