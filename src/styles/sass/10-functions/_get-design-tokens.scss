@@ -7,45 +7,43 @@
 @use "../00-design-tokens/viewports.scss" as *;
 
 /**
- * Takes several maps of design tokens and returns a map where each key is a 
- * category of design tokens (e.g., "color", "space-size") and each value is 
- * another map. This nested map contains two keys: "variable" and "prefix".
+ * This function returns a map where each key is a CSS property (e.g., "space-size", "font-size") 
+ * and each value is another map. This nested map contains two keys: "token" and "prefix".
  *
- * The "variable" key corresponds to the imported map of design tokens, and 
- * the "prefix" key corresponds to the string prepended to each key when 
- * generating CSS custom properties.
+ * The "token" key corresponds to the imported map of design tokens (e.g., $spacing, $text-sizes), 
+ * and the "prefix" key corresponds to the string that will be prepended to each key when 
+ * generating CSS custom properties (e.g., "space", "size-step").
  *
- * @returns {map} A map where each key is a category of design tokens and each 
- * value is another map containing the design tokens and their corresponding 
- * CSS custom property prefixes.
+ * @returns {map} A map where each key is a CSS property and each value is another map 
+ * containing the corresponding design token and its CSS custom property prefix.
  */
 
-@function design-tokens() {
-  $tokens: (
+@function getDesignTokens() {
+  $property: (
     "color": (
-      "variable": $colors,
+      "token": $colors,
       "prefix": "color",
     ),
     "space-size": (
-      "variable": $spacing,
+      "token": $spacing,
       "prefix": "space",
     ),
     "font-size": (
-      "variable": $text-sizes,
+      "token": $text-sizes,
       "prefix": "size-step",
     ),
-    "line-height": (
-      "variable": $text-leading,
-      "prefix": "leading",
-    ),
     "font-family": (
-      "variable": $fonts,
+      "token": $fonts,
       "prefix": "font",
     ),
     "font-weight": (
-      "variable": $text-weights,
+      "token": $text-weights,
       "prefix": "font",
     ),
+    "line-height": (
+      "token": $text-leading,
+      "prefix": "leading",
+    ),
   );
-  @return $tokens;
+  @return $property;
 }

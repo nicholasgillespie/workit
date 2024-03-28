@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" class="use-subgrid">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" layout="width=device-width, initial-scale=1.0" />
     <link
       rel="shortcut icon"
       href="./images/favicon-32x32.png"
@@ -13,30 +13,30 @@
     <title>Document</title>
   </head>
   <body>
-    <header class="l-content l-region">
-      <div class="l-content__full-width l-repel" data-full-width="contained">
-        <a href="#">
-          <img src="./images/logo.png" alt="logo" />
-        </a>
-        <nav>
+    <main>
+      <section class="l-wrapper l-region">
+        <nav class="l-repel">
+          <img src="" alt="logo" />
           <ul role="list" class="l-cluster">
-            <li><a href="/">link</a></li>
-            <li><a href="/">link</a></li>
-            <li><a href="/">link</a></li>
+            <li><a href="#">item</a></li>
+            <li><a href="#">item</a></li>
+            <li><a href="#">item</a></li>
           </ul>
         </nav>
-      </div>
-    </header>
-    <main class="l-content">
-      <h1>Lorem, ipsum dolor.</h1>
-      <p class="test" style="--measure: none">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta quod
-        aut iure ea officiis error optio sequi ducimus adipisci expedita animi
-        earum asperiores harum dolores laudantium sunt quidem voluptas nemo, eos
-        quibusdam sapiente. Natus repudiandae vero eligendi saepe molestias ipsa
-        illo ipsum impedit animi, quidem excepturi quisquam? Nisi, voluptatum
-        sint?
-      </p>
+      </section>
+
+      <section class="l-canvas l-region">
+        <div class="l-canvas--full-width" data-full-width="contained">
+          <nav class="l-repel">
+            <img src="" alt="logo" />
+            <ul role="list" class="l-cluster">
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+            </ul>
+          </nav>
+        </div>
+      </section>
     </main>
   </body>
 </html>

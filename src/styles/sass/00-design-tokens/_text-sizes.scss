@@ -6,8 +6,8 @@ $text-sizes: utopia.calculateTypeScale(
   (
     "minWidth": map-get($viewports, "min"),
     "maxWidth": map-get($viewports, "max"),
-    "minFontSize": 16,
-    "maxFontSize": 18,
+    "minFontSize": 18,
+    "maxFontSize": 20,
     "minTypeScale": 1.2,
     "maxTypeScale": 1.25,
     "positiveSteps": 5,

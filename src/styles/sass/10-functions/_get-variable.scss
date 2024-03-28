@@ -1,0 +1,35 @@
+@use "../10-functions/get-design-tokens" as *;
+
+/**
+ * Retrieves a CSS custom property for a given property name and variant. 
+ * It fetches all design tokens, then searches for the property name 
+ * to find the associated design token and CSS custom property prefix.
+ * If the variant exists within the design token, it returns a CSS custom property 
+ * combining the prefix and the variant. If the property name or the variant doesn't 
+ * exist, it throws an error.
+ *
+ * @param {string} $property - The property name to look up.
+ * @param {string} $value - The variant within the design token to look up.
+ * @returns {string} The CSS custom property associated with the property and variant.
+ * @throws {error} If the property name or the variant doesn't exist.
+ */
+
+@function get($property: null, $value: null) {
+  $designTokens: getDesignTokens();
+
+  @if $property == null or map-has-key($designTokens, $property) == false {
+    $propertyOptions: map-keys($designTokens);
+    @error "No design tokens available for the property `#{$property}`. Please provide a property that has corresponding design tokens. Available properties are: `#{$propertyOptions}`.";
+  }
+
+  $propertyMap: map-get($designTokens, $property);
+  $token: map-get($propertyMap, "token");
+
+  @if $value == null or map-has-key($token, $value) == false {
+    $valueOptions: map-keys($token);
+    @error "The requested value `#{$value}` is not found within the design token `#{$property}`. Please provide a valid value. Available values for the `#{$property}` design token are: `#{$valueOptions}`.";
+  }
+
+  $prefix: map-get($propertyMap, "prefix");
+  @return var(--#{$prefix}-#{$value});
+}

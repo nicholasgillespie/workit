@@ -1,0 +1,37 @@
+@use "../10-functions/get-design-tokens" as *;
+
+/**
+ * This mixin generates CSS custom properties for each design token.
+ * It iterates over each CSS property returned by the getDesignTokens() function.
+ * For each property, it retrieves the associated design token and the CSS custom property prefix.
+ * 
+ * The design token is a map of key-value pairs where each key is a variant and each value is the corresponding value for that variant.
+ * The prefix is a string that will be prepended to each key when generating CSS custom properties.
+ * 
+ * Then, it iterates over each variant in the design token map and generates a CSS custom property.
+ * The name of the custom property is the prefix followed by the key of the variant,
+ * and the value of the custom property is the value of the variant.
+ * 
+ * If no design token map is associated with a property, or if the associated design token is not a map, or if no prefix is associated with a property,
+ * an error message is thrown to help developers diagnose and fix the problem.
+ */
+
+@mixin tokensToVariables() {
+  @each $property, $map in getDesignTokens() {
+    $token: map-get($map, "token");
+    $prefix: map-get($map, "prefix");
+
+    @if $token == null {
+      @error "No design token is associated with the property `#{$property}`. Please ensure that each property in the `getDesignTokens()` function is associated with a design token.";
+    }
+    @if type-of($token) != map {
+      @error "The design token associated with the property `#{$property}` is not structured as a map. Please ensure that each design token is a map of key-value pairs.";
+    }
+    @if $prefix == null {
+      @error "No prefix is associated with the property `#{$property}` in the `getDesignTokens()` function. Please ensure that each property is associated with a prefix.";
+    }
+    @each $key, $value in $token {
+      --#{$prefix}-#{$key}: #{$value};
+    }
+  }
+}

@@ -1,9 +1,8 @@
 @use "../10-functions/helpers" as help;
 
 $viewports: (
-  "min": 330,
-  "mid": 760,
-  "max": 1230,
+  "min": 320,
+  "max": 1240,
 );
 
 $viewports: help.kebab-case-map($viewports);

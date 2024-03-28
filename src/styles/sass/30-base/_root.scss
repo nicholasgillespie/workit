@@ -1,31 +1,12 @@
-@use "../20-mixins/gen-css-variables" as gen;
+@use "../20-mixins/tokens-to-variables" as *;
+@use "../00-design-tokens/viewports" as *;
 
 :root {
-  @include gen.css-variables();
+  --layout-base-min: #{map-get($viewports, "max")}px;
+  --layout-base-max: #{map-get($viewports, "max")}px;
+
+  @include tokensToVariables();
 
   --gutter: var(--space-s-l);
   --measure: 75ch;
-
-  // --border-radius: var(--size-step-1);
-  // --transition-base: 250ms ease;
-  // --transition-movement: 200ms linear;
-  // --transition-fade: 300ms ease;
-  // --transition-bounce: 500ms cubic-bezier(0.5: 0.05, 0.2, 1.5);
-  --tracking: -0.05ch;
-  --tracking-s: -0.075ch;
-
-  // --border-color: red;
-  // --border-style: solid;
-  // --border-width: 2px;
-
-  // --box-padding: var(--space-s-m);
-  // --cluster-gap: var(--space-s-m);
-  // --cover-padding: var(--space-s-l);
-  // --grid-gap: var(--space-s-l);
-  // --region-padding: var(--space-l-2xl);
-  // --repel-gap: var(--space-s-m);
-  // --sidebar-gap: var(--space-s-l);
-  // --switcher-gap: var(--space-s-l);
-  // --grid-gap: var(--space-s-l);
-  // --wrapper-padding: var(--space-s-l);
 }

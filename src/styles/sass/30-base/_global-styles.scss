@@ -1,4 +1,4 @@
-@use "../10-functions/get-css-variable" as *;
+@use "../10-functions/get-variable" as *;
 
 * {
   outline: solid 1px hotpink;
@@ -131,8 +131,8 @@ button {
     align-items: center;
     flex-wrap: nowrap;
     min-block-size: 100%;
-    font-family: get-font-family("code");
-    font-size: get-size(-1);
+    // font-family: get-font-family("code");
+    // font-size: get-size(-1);
   }
 
   &:not(:focus) {

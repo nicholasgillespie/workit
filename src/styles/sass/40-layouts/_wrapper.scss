@@ -1,41 +1,32 @@
 /*
- * WRAPPER & FULL-WIDTH
- * A layout that constrains the width of its content, centering it in the available space and adding padding on the sides. 
- * It also offers an option to make an element span the full width of the viewport (full-bleed).
- * Info: https://www.joshwcomeau.com/css/full-bleed/
+ * WRAPPER
+ * A layout that constrains the width of its content, centering it in the available space and adding padding on the sides.
+ * Info: https://piccalil.li/quick-tip/use-css-clamp-to-create-a-more-flexible-wrapper-utility/
  * 
  * CUSTOM PROPERTIES AND CONFIGURATION
  * --wrapper-max-inline-size: The maximum width of the content.
- * --wrapper-padding: The padding on the sides of the content.
- * --full-width-padding: Defines the padding for the contained full-bleed element.
+ * --wrapper-padding-inline: The padding on the sides of the content.
+ * 
+ * DATA ATTRIBUTES
+ * A data attribute [data-wrapper="full-width"] can be used to make the wrapper full width.
+ * A data attribute [data-wrapper="gutterless"] can be used to remove the padding from the sides of the wrapper.
  */
 
 .l-wrapper {
-  display: grid;
-  grid-template-columns:
-    1fr
-    min(
-      var(--wrapper-max-inline-size, 85rem),
-      calc(100% - calc(var(--wrapper-padding, var(--gutter)) * 2))
-    )
-    1fr;
-  grid-column-gap: var(--wrapper-padding, var(--gutter));
+  inline-size: 100%;
+  max-inline-size: calc(
+    var(--wrapper-max-inline-size, var(--layout-base-max)) +
+      var(--wrapper-padding-inline, var(--gutter)) * 2
+  );
+  margin-inline: auto;
+  padding-inline: var(--wrapper-padding-inline, var(--gutter));
+  position: relative;
 
-  > * {
-    grid-column: 2;
+  &[data-wrapper="full-width"] {
+    --wrapper-max-inline-size: 100%;
   }
 
-  &__full-width {
-    inline-size: 100%;
-    grid-column: 1 / -1;
-
-    &[data-full-width="contained"] {
-      padding-inline: var(--full-width-padding, var(--gutter));
-
-      & > * {
-        max-inline-size: var(--wrapper-max-inline-size, 85rem);
-        margin-inline: auto;
-      }
-    }
+  &[data-wrapper="gutterless"] {
+    --wrapper-padding-inline: 0px;
   }
 }
